@@ -1,0 +1,1681 @@
+{
+  "$schema": "./routes.schema.json",
+  "version": "1.0.0",
+  "updated_at": "2026-05-28",
+  "routes": [
+    {
+      "id": "home",
+      "path": "/",
+      "component": "HomePage",
+      "module": "public",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "onboarding",
+        "discovery"
+      ],
+      "tags": [
+        "landing"
+      ],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "login",
+      "path": "/login",
+      "component": "LoginPage",
+      "module": "auth",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "onboarding"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "signup",
+      "path": "/Signup",
+      "component": "SignupPage",
+      "module": "auth",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "onboarding"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Casing inconsistency: PascalCase path. Consider normalizing to /signup."
+    },
+    {
+      "id": "forgot-password",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "module": "auth",
+      "auth": false,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "onboarding"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "change-password",
+      "path": "/ChangePassword",
+      "component": "ChangePassword",
+      "module": "auth",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Casing inconsistency: PascalCase path. Consider normalizing to /change-password."
+    },
+    {
+      "id": "payment-flow",
+      "path": "/PaymentFlow",
+      "component": "PaymentFlow",
+      "module": "payment",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Casing inconsistency. Why is this a top-level public route? Should it be auth-gated?"
+    },
+    {
+      "id": "about",
+      "path": "/about",
+      "component": "AboutPage",
+      "module": "static",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [
+        "legal"
+      ],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "ip-policy",
+      "path": "/ip_policy",
+      "component": "IpPolicyPage",
+      "module": "static",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [
+        "legal"
+      ],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "privacy-policy",
+      "path": "/privacy_policy",
+      "component": "PrivacyPolicyPage",
+      "module": "static",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [
+        "legal"
+      ],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "terms-of-service",
+      "path": "/terms_of_service",
+      "component": "TermsOfServicePage",
+      "module": "static",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [
+        "legal"
+      ],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "work-agreements",
+      "path": "/work_agreements",
+      "component": "WorkAgreementPage",
+      "module": "static",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [
+        "legal"
+      ],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "contact-us",
+      "path": "/contact_us",
+      "component": "ContactUsPage",
+      "module": "static",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "help-faq",
+      "path": "/help_faq",
+      "component": "HelpFaqPage",
+      "module": "static",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "support"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "settings-profile",
+      "path": "/settings/profile",
+      "component": "ProfileSettingRoot",
+      "module": "settings",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "onboarding"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "settings-account",
+      "path": "/settings/account",
+      "component": "AccountSettingRoot",
+      "module": "settings",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "settings-payment",
+      "path": "/settings/payment",
+      "component": "PaymentSettingPage",
+      "module": "settings",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "settings-privacy",
+      "path": "/settings/privacy",
+      "component": "PrivacySettingPage",
+      "module": "settings",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "settings-security",
+      "path": "/settings/security",
+      "component": "SecuritySettingPage",
+      "module": "settings",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "settings-kyc",
+      "path": "/settings/kyc_verification",
+      "component": "KycSettingPage",
+      "module": "settings",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "onboarding",
+        "payment"
+      ],
+      "tags": [
+        "kyc"
+      ],
+      "inferred": false,
+      "notes": "Critical for payment eligibility."
+    },
+    {
+      "id": "settings-notifications",
+      "path": "/settings/notifications",
+      "component": "NotificationSettingPage",
+      "module": "settings",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "settings-subscriptions",
+      "path": "/settings/subscriptions",
+      "component": "SubscriptionSettingPage",
+      "module": "settings",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "profile",
+      "path": "/profile",
+      "component": "ProfilePage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "onboarding"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "profile-organization",
+      "path": "/profile/organization",
+      "component": "OrganizationProfilePage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [
+        "organization"
+      ],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "discover-contributors",
+      "path": "/profile/discover_contributors",
+      "component": "DiscoverContributorsPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Path corrected from verification on 2026-05-28."
+    },
+    {
+      "id": "collaborator-hub",
+      "path": "/profile/collaborator_hub",
+      "component": "CollaboratorHubPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Path corrected from verification on 2026-05-28."
+    },
+    {
+      "id": "organization-workspace",
+      "path": "/profile/organization/workspace",
+      "component": "OrganizationWorkspacePage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [
+        "organization"
+      ],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "organization-public-profile",
+      "path": "/profile/organization/:id",
+      "component": "OrganizationPublicProfilePage",
+      "module": "profile",
+      "auth": false,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [
+        "organization"
+      ],
+      "inferred": false,
+      "notes": "May be public."
+    },
+    {
+      "id": "collaboration-request",
+      "path": "/profile/collaboration_request",
+      "component": "CollaborationRequestPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Path corrected from verification on 2026-05-28."
+    },
+    {
+      "id": "invite-to-order",
+      "path": "/profile/invite_to_order",
+      "component": "InviteToOrderPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Path corrected from verification on 2026-05-28."
+    },
+    {
+      "id": "organization-member-invitation",
+      "path": "/profile/organization/member-invitation",
+      "component": "OrganizationMemberInvitation",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [
+        "organization"
+      ],
+      "inferred": false,
+      "notes": "Possibly duplicate of organization-invitation."
+    },
+    {
+      "id": "organization-invitation",
+      "path": "/profile/organization/invitation",
+      "component": "OrganizationInvitationPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [
+        "organization"
+      ],
+      "inferred": false,
+      "notes": "Possibly duplicate of organization-member-invitation."
+    },
+    {
+      "id": "favorites",
+      "path": "/profile/favorites",
+      "component": "FavoritePage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "my-proposals",
+      "path": "/profile/my-proposals",
+      "component": "MyProposalPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "featured-listing",
+      "path": "/profile/featured_listing",
+      "component": "FeaturedListingPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Path corrected from verification on 2026-05-28."
+    },
+    {
+      "id": "pin-listing-checkout",
+      "path": "/profile/pin-listing/checkout",
+      "component": "PinListingCheckoutPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "my-tasks",
+      "path": "/profile/my-tasks",
+      "component": "MyTaskPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "task-posting"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "my-applied",
+      "path": "/profile/my-applied",
+      "component": "MyAppliedPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "my-services",
+      "path": "/profile/my-services",
+      "component": "MyServicePage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "service-posting"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "create-service",
+      "path": "/profile/create_service",
+      "component": "CreateService",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "service-posting"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Path corrected from verification on 2026-05-28."
+    },
+    {
+      "id": "my-exchanges",
+      "path": "/profile/my_exchanges",
+      "component": "MyExchanges",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "exchange"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Path corrected from verification on 2026-05-28."
+    },
+    {
+      "id": "exchange-progress",
+      "path": "/profile/exchange/:id/progress",
+      "component": "ExchangeProgressPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "exchange"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "exchange-details",
+      "path": "/profile/exchange/:id",
+      "component": "ExchangeDetailsPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "exchange"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Possibly duplicate of marketplace ExchangeDetails. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "my-workspace",
+      "path": "/profile/workspace",
+      "component": "MyWorkSpacePage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "dashboard",
+      "path": "/dashboard",
+      "component": "DashboardPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "manage-proposal-detail",
+      "path": "/profile/proposals/:id/manage",
+      "component": "MangeProposalDetailPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Component name typo: 'Mange' should be 'Manage'. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "manage-work-progress",
+      "path": "/profile/work-progress/manage",
+      "component": "ManageWorkProgress",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "task-posting"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "addons-catalog",
+      "path": "/profile/addons",
+      "component": "AddonsCatalogPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [
+        "addons"
+      ],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "addon-history",
+      "path": "/profile/addons/history",
+      "component": "AddonHistoryPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [
+        "addons"
+      ],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "addon-checkout",
+      "path": "/profile/addons/checkout",
+      "component": "AddonCheckoutPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [
+        "addons"
+      ],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "subscription-checkout",
+      "path": "/profile/subscription/checkout",
+      "component": "SubscriptionCheckoutPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "stripe-pay",
+      "path": "/profile/stripe-pay",
+      "component": "StripePay",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [
+        "stripe"
+      ],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "withdraw",
+      "path": "/profile/withdraw",
+      "component": "WithdrawPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "add-fund",
+      "path": "/profile/add-fund",
+      "component": "AddFundPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "billing-payment",
+      "path": "/profile/billing",
+      "component": "BillingPaymentPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "payment",
+      "path": "/profile/payment",
+      "component": "PaymentPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. May conflict with /PaymentFlow at root. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "payment-success",
+      "path": "/profile/payment/success",
+      "component": "PaymentSuccess",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "stripe-connect-success",
+      "path": "/profile/stripe-connect/success",
+      "component": "StripeConnectSuccessPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [
+        "stripe"
+      ],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "stripe-checkout",
+      "path": "/profile/stripe-checkout",
+      "component": "StripeCheckout",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [
+        "stripe"
+      ],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "payment-history",
+      "path": "/profile/payment/history",
+      "component": "PaymentHistoryPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "payment"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "profile-badge",
+      "path": "/profile/badge",
+      "component": "ProfileBadge",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "proposals",
+      "path": "/profile/proposals",
+      "component": "ProposalsPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "support-tickets",
+      "path": "/profile/support/tickets",
+      "component": "SupportTicketsPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "support"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "ticket-history",
+      "path": "/profile/support/tickets/history",
+      "component": "TicketHistoryPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "support"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "ticket-room",
+      "path": "/profile/support/tickets/:id",
+      "component": "TicketRoomPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "support"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "browse-tasks",
+      "path": "/browse-tasks",
+      "component": "BrowseTaskPage",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "task-list",
+      "path": "/task_list",
+      "component": "TaskList",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Possibly duplicate of /browse-tasks — clarify with developer."
+    },
+    {
+      "id": "post-task",
+      "path": "/post-task",
+      "component": "PostTasks",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "task-posting"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "featured-tasks",
+      "path": "/featured-tasks",
+      "component": "FeaturedTask",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "category",
+      "path": "/category",
+      "component": "CategoryPage",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "bids",
+      "path": "/bids",
+      "component": "BidsPage",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "service-order",
+      "path": "/service-order/:id",
+      "component": "ServiceOrderPage",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "service-posting"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "service-details",
+      "path": "/service/:id",
+      "component": "ServiceDetails",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "task-details",
+      "path": "/task/:id",
+      "component": "TaskDetails",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "task-workspace",
+      "path": "/task/:id/workspace",
+      "component": "TaskWorkspace",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "task-posting"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "browse-post",
+      "path": "/browse",
+      "component": "BrowsePost",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Same component appears with /browse and /browse/:type — confirm intentional."
+    },
+    {
+      "id": "browse-post-by-type",
+      "path": "/browse/:type",
+      "component": "BrowsePost",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Variant of /browse with type parameter. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "request-proposal",
+      "path": "/request-proposal",
+      "component": "RequestProposalPage",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "request-details",
+      "path": "/request/:id",
+      "component": "RequestDetails",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "request-progress",
+      "path": "/request/:id/progress",
+      "component": "RequestProgressPage",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "exchange-request",
+      "path": "/exchange-request",
+      "component": "ExchangeRequest",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "exchange"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "exchange-details-marketplace",
+      "path": "/exchange/:id",
+      "component": "ExchangeDetails",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "exchange"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Possibly duplicate of profile/exchange/:id. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "resource-details",
+      "path": "/resource/:id",
+      "component": "ResourceDetails",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "resource-request",
+      "path": "/resource-request",
+      "component": "ResourceRequest",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "request-submitted",
+      "path": "/request-submitted",
+      "component": "RequestSubmitted",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Confirmation page. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "work-progress",
+      "path": "/work-progress/:id",
+      "component": "WorkProgressPage",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "task-posting"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "service-progress",
+      "path": "/service-progress/:id",
+      "component": "ServiceProgress",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "service-posting"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "supporters",
+      "path": "/supporters",
+      "component": "SupportersPage",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "supporter-dashboard",
+      "path": "/supporter/dashboard",
+      "component": "SupporterDashboard",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "supporter-work-progress",
+      "path": "/supporter/work-progress/:id",
+      "component": "SupporterWorkProgress",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "featured-tasks-services",
+      "path": "/featured",
+      "component": "FeaturedTasksServices",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "newest-tasks-services",
+      "path": "/newest",
+      "component": "NewestTasksServices",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "recommended-tasks-services",
+      "path": "/recommended",
+      "component": "RecommendedTasksServices",
+      "module": "marketplace",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "search-result",
+      "path": "/search",
+      "component": "SearchResultPage",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "global-calendar-view",
+      "path": "/calendar",
+      "component": "GlobalCalendarViewPage",
+      "module": "calendar",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "post-calendar",
+      "path": "/calendar/post",
+      "component": "PostCalendarPage",
+      "module": "calendar",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "my-calendar",
+      "path": "/calendar/my",
+      "component": "MyCalendarPage",
+      "module": "calendar",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "post-proposal",
+      "path": "/calendar/post-proposal",
+      "component": "PostProposalPage",
+      "module": "calendar",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "proposals"
+      ],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Possibly belongs to proposals module. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "messages",
+      "path": "/messages",
+      "component": "Messages",
+      "module": "social",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "notifications",
+      "path": "/notifications",
+      "component": "NotificationPage",
+      "module": "social",
+      "auth": true,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "suggestions",
+      "path": "/suggestions",
+      "component": "Suggestions",
+      "module": "social",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "blog",
+      "path": "/blog",
+      "component": "BlogPage",
+      "module": "content",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "blog-details",
+      "path": "/blog/:slug",
+      "component": "BlogDetails",
+      "module": "content",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": true,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "help",
+      "path": "/help",
+      "component": "HelpPage",
+      "module": "support",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "support"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "May duplicate /help_faq."
+    },
+    {
+      "id": "support",
+      "path": "/support",
+      "component": "SupportPage",
+      "module": "support",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "support"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": ""
+    },
+    {
+      "id": "premier-support",
+      "path": "/premier-support",
+      "component": "PremierSupport",
+      "module": "support",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "support"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "inferred": true,
+      "notes": "Path and component name inferred — original had typo 'premer support'. Confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+    },
+    {
+      "id": "faq",
+      "path": "/faq",
+      "component": "FAQPage",
+      "module": "support",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "support"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "May duplicate /help_faq."
+    }
+  ]
+}
