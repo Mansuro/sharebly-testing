@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sharebly Routes Inventory",
+  "description": "Source of truth for all routes in the Sharebly application",
+  "type": "object",
+  "required": ["version", "routes"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "routes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/definitions/route" }
+    }
+  },
+  "definitions": {
+    "route": {
+      "type": "object",
+      "required": [
+        "id",
+        "path",
+        "component",
+        "module",
+        "auth",
+        "priority",
+        "status",
+        "owner",
+        "flows",
+        "tags",
+        "inferred",
+        "notes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "Stable slug for the route. Lowercase kebab-case. Never changes."
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^/.*",
+          "description": "URL path as it appears in the router. Kept as developer wrote it."
+        },
+        "component": {
+          "type": "string",
+          "description": "React component name (PascalCase)."
+        },
+        "module": {
+          "type": "string",
+          "enum": [
+            "public",
+            "auth",
+            "static",
+            "settings",
+            "profile",
+            "marketplace",
+            "payment",
+            "calendar",
+            "social",
+            "content",
+            "support"
+          ]
+        },
+        "auth": {
+          "type": "boolean",
+          "description": "Whether the route requires authentication."
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["P0", "P1", "P2"],
+          "description": "P0 = critical user journey, P1 = important, P2 = nice-to-have."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in-progress", "pass", "fail", "blocked", "skip"]
+        },
+        "owner": {
+          "type": "string",
+          "description": "Who is responsible for testing this route. Use 'unassigned' if no owner yet."
+        },
+        "flows": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "onboarding",
+              "discovery",
+              "task-posting",
+              "service-posting",
+              "proposals",
+              "payment",
+              "exchange",
+              "support"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "inferred": {
+          "type": "boolean",
+          "description": "True if path was guessed (developer didn't provide it). Must be verified."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Free-form notes: inconsistencies, open questions, special handling."
+        }
+      }
+    }
+  }
+}
