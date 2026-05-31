@@ -15,6 +15,8 @@
     "apply-bundle:force": "node apply-bundle.js --apply",
     "merge-orphans": "node merge-orphans.js",
     "merge-orphans:force": "node merge-orphans.js --apply",
+    "triage": "node triage.js",
+    "triage:force": "node triage.js --apply",
     "apply": "node apply.js",
     "apply:force": "node apply.js --apply"
   },

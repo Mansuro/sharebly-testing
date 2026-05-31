@@ -413,10 +413,10 @@
     },
     {
       "id": "organization-public-profile",
-      "path": "/profile/organization",
+      "path": "/profile/organization/:slug",
       "component": "OrganizationPublicProfilePage",
       "module": "profile",
-      "auth": false,
+      "auth": true,
       "priority": "P1",
       "status": "pending",
       "owner": "unassigned",
@@ -427,7 +427,8 @@
         "organization"
       ],
       "inferred": false,
-      "notes": "May be public. Path corrected via bundle extraction on 2026-05-31."
+      "notes": "May be public. Path corrected via bundle extraction on 2026-05-31. Path corrected from /profile/organization to /profile/organization/:slug on 2026-05-31. organization-public-profile is the slug-based detail page.",
+      "sample_path": "/profile/organization/1"
     },
     {
       "id": "collaboration-request",
@@ -461,7 +462,7 @@
     },
     {
       "id": "organization-member-invitation",
-      "path": "/profile/organization",
+      "path": "/profile/organization_invites",
       "component": "OrganizationMemberInvitation",
       "module": "profile",
       "auth": true,
@@ -473,23 +474,7 @@
         "organization"
       ],
       "inferred": false,
-      "notes": "Possibly duplicate of organization-invitation. Path corrected via bundle extraction on 2026-05-31."
-    },
-    {
-      "id": "organization-invitation",
-      "path": "/profile/organization",
-      "component": "OrganizationInvitationPage",
-      "module": "profile",
-      "auth": true,
-      "priority": "P1",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [],
-      "tags": [
-        "organization"
-      ],
-      "inferred": false,
-      "notes": "Possibly duplicate of organization-member-invitation. Path corrected via bundle extraction on 2026-05-31."
+      "notes": "Possibly duplicate of organization-invitation. Path corrected via bundle extraction on 2026-05-31. Path corrected from /profile/organization to /profile/organization_invites on 2026-05-31. organization-member-invitation maps to the invites canonical route."
     },
     {
       "id": "favorites",
@@ -539,7 +524,7 @@
     },
     {
       "id": "pin-listing-checkout",
-      "path": "/profile/pin-listing/checkout",
+      "path": "/profile/featured_listing/payment",
       "component": "PinListingCheckoutPage",
       "module": "profile",
       "auth": true,
@@ -550,8 +535,8 @@
         "payment"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path corrected from /profile/pin-listing/checkout to /profile/featured_listing/payment on 2026-05-31. pin-listing-checkout and featured-listing-payment describe the same checkout flow."
     },
     {
       "id": "my-tasks",
@@ -772,7 +757,7 @@
       "module": "profile",
       "auth": true,
       "priority": "P0",
-      "status": "pending",
+      "status": "blocked",
       "owner": "unassigned",
       "flows": [
         "payment"
@@ -781,7 +766,7 @@
         "stripe"
       ],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /profile/stripe-pay not in bundle. No clear canonical mapping. (Triaged 2026-05-31.)"
     },
     {
       "id": "withdraw",
@@ -922,12 +907,12 @@
       "module": "profile",
       "auth": true,
       "priority": "P2",
-      "status": "pending",
+      "status": "blocked",
       "owner": "unassigned",
       "flows": [],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /profile/badge not in bundle. No clear canonical mapping. (Triaged 2026-05-31.)"
     },
     {
       "id": "proposals",
@@ -952,14 +937,14 @@
       "module": "profile",
       "auth": true,
       "priority": "P1",
-      "status": "pending",
+      "status": "blocked",
       "owner": "unassigned",
       "flows": [
         "support"
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /profile/support/tickets not in bundle. No canonical mapping found. (Triaged 2026-05-31.)"
     },
     {
       "id": "ticket-history",
@@ -968,14 +953,14 @@
       "module": "profile",
       "auth": true,
       "priority": "P2",
-      "status": "pending",
+      "status": "blocked",
       "owner": "unassigned",
       "flows": [
         "support"
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /profile/support/tickets/history not in bundle. No canonical mapping found. (Triaged 2026-05-31.)"
     },
     {
       "id": "ticket-room",
@@ -984,14 +969,14 @@
       "module": "profile",
       "auth": true,
       "priority": "P1",
-      "status": "pending",
+      "status": "blocked",
       "owner": "unassigned",
       "flows": [
         "support"
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved.",
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /profile/support/tickets/:id not in bundle. Closest /profile/room may serve similar purpose; needs developer confirmation. (Triaged 2026-05-31.)",
       "sample_path": "/profile/support/tickets/1"
     },
     {
@@ -1081,14 +1066,14 @@
       "module": "marketplace",
       "auth": true,
       "priority": "P0",
-      "status": "pending",
+      "status": "blocked",
       "owner": "unassigned",
       "flows": [
         "proposals"
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /bids not in bundle. No clear canonical mapping. (Triaged 2026-05-31.)"
     },
     {
       "id": "service-order",
@@ -1105,7 +1090,7 @@
       "tags": [],
       "inferred": false,
       "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31.",
-      "sample_path": "/service-order/1"
+      "sample_path": "/profile/service_progress/1/1"
     },
     {
       "id": "service-details",
@@ -1155,7 +1140,7 @@
       "tags": [],
       "inferred": false,
       "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31.",
-      "sample_path": "/task/1/workspace"
+      "sample_path": "/browse/task/details/task-workspace/1"
     },
     {
       "id": "browse-post",
@@ -1188,7 +1173,7 @@
       "tags": [],
       "inferred": false,
       "notes": "Variant of /browse with type parameter. Verified missing on 2026-05-28 — no path variant resolved.",
-      "sample_path": "/browse/services"
+      "sample_path": "/browse/tasks"
     },
     {
       "id": "request-proposal",
@@ -1208,7 +1193,7 @@
     },
     {
       "id": "request-details",
-      "path": "/browse/request/details/",
+      "path": "/browse/request/details",
       "component": "RequestDetails",
       "module": "marketplace",
       "auth": true,
@@ -1220,8 +1205,7 @@
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved.",
-      "sample_path": "/browse/request/details/?~d152aafb-ab53-4254-9274-4e9b5bb391d2"
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Stale sample_path removed; trailing slash normalized on 2026-05-31."
     },
     {
       "id": "request-progress",
@@ -1257,7 +1241,7 @@
     },
     {
       "id": "exchange-details-marketplace",
-      "path": "/browse/exchange/details/",
+      "path": "/browse/exchange/details",
       "component": "ExchangeDetails",
       "module": "marketplace",
       "auth": true,
@@ -1269,12 +1253,11 @@
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Possibly duplicate of profile/exchange/:id. Verified missing on 2026-05-28 — no path variant resolved.",
-      "sample_path": "/browse/exchange/details/?~d152aafb-ab53-4254-9274-4e9b5bb391d2"
+      "notes": "Path inferred — confirm with developer. Possibly duplicate of profile/exchange/:id. Verified missing on 2026-05-28 — no path variant resolved. Stale sample_path removed; trailing slash normalized on 2026-05-31."
     },
     {
       "id": "resource-details",
-      "path": "/browse/resource/details/",
+      "path": "/browse/resource/details",
       "component": "ResourceDetails",
       "module": "marketplace",
       "auth": false,
@@ -1286,8 +1269,7 @@
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved.",
-      "sample_path": "/browse/resource/details/?~d152aafb-ab53-4254-9274-4e9b5bb391d2"
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Stale sample_path removed; trailing slash normalized on 2026-05-31."
     },
     {
       "id": "resource-request",
@@ -1352,7 +1334,7 @@
       "tags": [],
       "inferred": false,
       "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31.",
-      "sample_path": "/service-progress/1"
+      "sample_path": "/profile/service_progress/1/1"
     },
     {
       "id": "supporters",
@@ -1361,12 +1343,12 @@
       "module": "marketplace",
       "auth": false,
       "priority": "P2",
-      "status": "pending",
+      "status": "blocked",
       "owner": "unassigned",
       "flows": [],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /supporters not in bundle. No clear canonical mapping. (Triaged 2026-05-31.)"
     },
     {
       "id": "supporter-dashboard",
@@ -1465,12 +1447,12 @@
       "module": "calendar",
       "auth": true,
       "priority": "P1",
-      "status": "pending",
+      "status": "blocked",
       "owner": "unassigned",
       "flows": [],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /calendar/post not in bundle. Likely defunct. (Triaged 2026-05-31.)"
     },
     {
       "id": "post-proposal",
@@ -1479,14 +1461,14 @@
       "module": "calendar",
       "auth": true,
       "priority": "P1",
-      "status": "pending",
+      "status": "blocked",
       "owner": "unassigned",
       "flows": [
         "proposals"
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Possibly belongs to proposals module. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Possibly belongs to proposals module. Verified missing on 2026-05-28 — no path variant resolved. Path /calendar/post-proposal not in bundle. Likely defunct. (Triaged 2026-05-31.)"
     },
     {
       "id": "notifications",
@@ -1791,20 +1773,6 @@
       "notes": "Discovered via bundle extraction on 2026-05-31. Merged from inferred orphan dashboard (was /dashboard) on 2026-05-31."
     },
     {
-      "id": "featured-listing-payment",
-      "path": "/profile/featured_listing/payment",
-      "component": "PaymentPage",
-      "module": "profile",
-      "auth": true,
-      "priority": "P2",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [],
-      "tags": [],
-      "inferred": false,
-      "notes": "Discovered via bundle extraction on 2026-05-31."
-    },
-    {
       "id": "profile-invite-member",
       "path": "/profile/invite_member",
       "component": "InviteMemberPage",
@@ -1889,34 +1857,6 @@
       "tags": [],
       "inferred": false,
       "notes": "Discovered via bundle extraction on 2026-05-31. Merged from inferred orphan my-services (was /profile/my-services) on 2026-05-31."
-    },
-    {
-      "id": "profile-organization-invites",
-      "path": "/profile/organization_invites",
-      "component": "OrganizationInvitesPage",
-      "module": "profile",
-      "auth": true,
-      "priority": "P2",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [],
-      "tags": [],
-      "inferred": false,
-      "notes": "Discovered via bundle extraction on 2026-05-31."
-    },
-    {
-      "id": "profile-organization-2",
-      "path": "/profile/organization/:slug",
-      "component": "OrganizationPage",
-      "module": "profile",
-      "auth": true,
-      "priority": "P2",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [],
-      "tags": [],
-      "inferred": false,
-      "notes": "Discovered via bundle extraction on 2026-05-31."
     },
     {
       "id": "premier-support",

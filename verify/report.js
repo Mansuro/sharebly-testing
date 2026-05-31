@@ -53,7 +53,10 @@ function main() {
     const tested_path = primaryBrowser ? primaryBrowser.path : null;
     let notes = [];
 
-    if (!primaryBrowser && route.path.includes(':')) {
+    if (route.status === 'blocked') {
+      verdict = 'blocked';
+      notes.push('Route marked blocked in routes.json — known broken or defunct.');
+    } else if (!primaryBrowser && route.path.includes(':')) {
       verdict = 'unverifiable';
       notes.push('Parameterized route — no sample_path provided in routes.json.');
     } else if (primaryBrowser) {
@@ -157,6 +160,7 @@ function buildMarkdownReport(verdicts) {
     'variant-works': '🔄 Working under a different path (fix routes.json)',
     'auth-redirect': '🔐 Auth-gated (login redirect — re-run with credentials)',
     'not-found': '❌ Not found (404)',
+    blocked: '🚫 Blocked (known broken, kept for traceability)',
     unverifiable: '⏭️  Unverifiable (parameterized, no sample_path)',
     error: '💥 Errors',
     unknown: '❓ No browser check (HTTP only)',
