@@ -50,9 +50,13 @@ function main() {
     let verdict = 'unknown';
     let confirmed_path = route.path;
     let suggested_path = null;
+    const tested_path = primaryBrowser ? primaryBrowser.path : null;
     let notes = [];
 
-    if (primaryBrowser) {
+    if (!primaryBrowser && route.path.includes(':')) {
+      verdict = 'unverifiable';
+      notes.push('Parameterized route — no sample_path provided in routes.json.');
+    } else if (primaryBrowser) {
       if (primaryBrowser.ok && !primaryBrowser.not_found_detected) {
         verdict = 'pass';
       } else if (primaryBrowser.not_found_detected) {
@@ -100,6 +104,7 @@ function main() {
       verdict,
       confirmed_path,
       suggested_path,
+      tested_path,
       notes,
     });
   }
@@ -152,6 +157,7 @@ function buildMarkdownReport(verdicts) {
     'variant-works': '🔄 Working under a different path (fix routes.json)',
     'auth-redirect': '🔐 Auth-gated (login redirect — re-run with credentials)',
     'not-found': '❌ Not found (404)',
+    unverifiable: '⏭️  Unverifiable (parameterized, no sample_path)',
     error: '💥 Errors',
     unknown: '❓ No browser check (HTTP only)',
   };
@@ -164,9 +170,14 @@ function buildMarkdownReport(verdicts) {
     lines.push('| Route | Path | Component | Priority | Notes |');
     lines.push('|---|---|---|---|---|');
     for (const v of items) {
-      const pathDisplay = v.suggested_path
-        ? `~~${v.path}~~ → \`${v.suggested_path}\``
-        : `\`${v.path}\``;
+      let pathDisplay;
+      if (v.suggested_path) {
+        pathDisplay = `~~${v.path}~~ → \`${v.suggested_path}\``;
+      } else if (v.tested_path && v.tested_path !== v.path) {
+        pathDisplay = `\`${v.path}\` (tested: \`${v.tested_path}\`)`;
+      } else {
+        pathDisplay = `\`${v.path}\``;
+      }
       const notes = v.notes.join('; ') || '';
       lines.push(
         `| ${v.id} | ${pathDisplay} | ${v.component} | ${v.priority} | ${notes} |`,

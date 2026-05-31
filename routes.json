@@ -1,7 +1,7 @@
 {
   "$schema": "./routes.schema.json",
   "version": "1.0.0",
-  "updated_at": "2026-05-28",
+  "updated_at": "2026-05-31",
   "routes": [
     {
       "id": "home",
@@ -397,7 +397,7 @@
     },
     {
       "id": "organization-workspace",
-      "path": "/profile/organization/workspace",
+      "path": "/profile/organization_workspace",
       "component": "OrganizationWorkspacePage",
       "module": "profile",
       "auth": true,
@@ -409,11 +409,11 @@
         "organization"
       ],
       "inferred": false,
-      "notes": ""
+      "notes": "Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "organization-public-profile",
-      "path": "/profile/organization/:id",
+      "path": "/profile/organization",
       "component": "OrganizationPublicProfilePage",
       "module": "profile",
       "auth": false,
@@ -427,7 +427,7 @@
         "organization"
       ],
       "inferred": false,
-      "notes": "May be public."
+      "notes": "May be public. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "collaboration-request",
@@ -461,7 +461,7 @@
     },
     {
       "id": "organization-member-invitation",
-      "path": "/profile/organization/member-invitation",
+      "path": "/profile/organization",
       "component": "OrganizationMemberInvitation",
       "module": "profile",
       "auth": true,
@@ -473,11 +473,11 @@
         "organization"
       ],
       "inferred": false,
-      "notes": "Possibly duplicate of organization-invitation."
+      "notes": "Possibly duplicate of organization-invitation. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "organization-invitation",
-      "path": "/profile/organization/invitation",
+      "path": "/profile/organization",
       "component": "OrganizationInvitationPage",
       "module": "profile",
       "auth": true,
@@ -489,7 +489,7 @@
         "organization"
       ],
       "inferred": false,
-      "notes": "Possibly duplicate of organization-member-invitation."
+      "notes": "Possibly duplicate of organization-member-invitation. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "favorites",
@@ -507,7 +507,7 @@
     },
     {
       "id": "my-proposals",
-      "path": "/profile/my-proposals",
+      "path": "/profile/my-tasks/proposals",
       "component": "MyProposalPage",
       "module": "profile",
       "auth": true,
@@ -518,8 +518,8 @@
         "proposals"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "featured-listing",
@@ -571,7 +571,7 @@
     },
     {
       "id": "my-applied",
-      "path": "/profile/my-applied",
+      "path": "/profile/my_applied",
       "component": "MyAppliedPage",
       "module": "profile",
       "auth": true,
@@ -582,24 +582,8 @@
         "proposals"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
-    },
-    {
-      "id": "my-services",
-      "path": "/profile/my-services",
-      "component": "MyServicePage",
-      "module": "profile",
-      "auth": true,
-      "priority": "P0",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [
-        "service-posting"
-      ],
-      "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "create-service",
@@ -635,7 +619,7 @@
     },
     {
       "id": "exchange-progress",
-      "path": "/profile/exchange/:id/progress",
+      "path": "/profile/exchange_progress",
       "component": "ExchangeProgressPage",
       "module": "profile",
       "auth": true,
@@ -646,12 +630,12 @@
         "exchange"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "exchange-details",
-      "path": "/profile/exchange/:id",
+      "path": "/profile/exchange_progress/details",
       "component": "ExchangeDetailsPage",
       "module": "profile",
       "auth": true,
@@ -662,12 +646,12 @@
         "exchange"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Possibly duplicate of marketplace ExchangeDetails. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Possibly duplicate of marketplace ExchangeDetails. Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "my-workspace",
-      "path": "/profile/workspace",
+      "path": "/profile/my_workspace",
       "component": "MyWorkSpacePage",
       "module": "profile",
       "auth": true,
@@ -676,26 +660,12 @@
       "owner": "unassigned",
       "flows": [],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
-    },
-    {
-      "id": "dashboard",
-      "path": "/dashboard",
-      "component": "DashboardPage",
-      "module": "profile",
-      "auth": true,
-      "priority": "P0",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [],
-      "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "manage-proposal-detail",
-      "path": "/profile/proposals/:id/manage",
+      "path": "/profile/Manage_proposal_detail",
       "component": "MangeProposalDetailPage",
       "module": "profile",
       "auth": true,
@@ -706,12 +676,12 @@
         "proposals"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Component name typo: 'Mange' should be 'Manage'. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Component name typo: 'Mange' should be 'Manage'. Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "manage-work-progress",
-      "path": "/profile/work-progress/manage",
+      "path": "/profile/work_progress",
       "component": "ManageWorkProgress",
       "module": "profile",
       "auth": true,
@@ -722,12 +692,12 @@
         "task-posting"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "addons-catalog",
-      "path": "/profile/addons",
+      "path": "/profile/addon_catalog",
       "component": "AddonsCatalogPage",
       "module": "profile",
       "auth": true,
@@ -740,12 +710,12 @@
       "tags": [
         "addons"
       ],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "addon-history",
-      "path": "/profile/addons/history",
+      "path": "/profile/my_addon_history",
       "component": "AddonHistoryPage",
       "module": "profile",
       "auth": true,
@@ -758,12 +728,12 @@
       "tags": [
         "addons"
       ],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "addon-checkout",
-      "path": "/profile/addons/checkout",
+      "path": "/profile/addon_catalog/checkout",
       "component": "AddonCheckoutPage",
       "module": "profile",
       "auth": true,
@@ -776,12 +746,12 @@
       "tags": [
         "addons"
       ],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "subscription-checkout",
-      "path": "/profile/subscription/checkout",
+      "path": "/profile/subscriptions/checkout",
       "component": "SubscriptionCheckoutPage",
       "module": "profile",
       "auth": true,
@@ -792,8 +762,8 @@
         "payment"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "stripe-pay",
@@ -815,7 +785,7 @@
     },
     {
       "id": "withdraw",
-      "path": "/profile/withdraw",
+      "path": "/profile/billing_payment/withdraw_fund",
       "component": "WithdrawPage",
       "module": "profile",
       "auth": true,
@@ -826,12 +796,12 @@
         "payment"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "add-fund",
-      "path": "/profile/add-fund",
+      "path": "/profile/billing_payment/add_fund",
       "component": "AddFundPage",
       "module": "profile",
       "auth": true,
@@ -842,12 +812,12 @@
         "payment"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "billing-payment",
-      "path": "/profile/billing",
+      "path": "/profile/billing_payment",
       "component": "BillingPaymentPage",
       "module": "profile",
       "auth": true,
@@ -858,12 +828,12 @@
         "payment"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "payment",
-      "path": "/profile/payment",
+      "path": "/profile/billing_payment",
       "component": "PaymentPage",
       "module": "profile",
       "auth": true,
@@ -874,12 +844,12 @@
         "payment"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. May conflict with /PaymentFlow at root. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "May conflict with /PaymentFlow at root. Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "payment-success",
-      "path": "/profile/payment/success",
+      "path": "/profile/billing_payment/connect_success",
       "component": "PaymentSuccess",
       "module": "profile",
       "auth": true,
@@ -890,12 +860,12 @@
         "payment"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "stripe-connect-success",
-      "path": "/profile/stripe-connect/success",
+      "path": "/profile/billing_payment/connect_success",
       "component": "StripeConnectSuccessPage",
       "module": "profile",
       "auth": true,
@@ -908,12 +878,12 @@
       "tags": [
         "stripe"
       ],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "stripe-checkout",
-      "path": "/profile/stripe-checkout",
+      "path": "/profile/subscriptions/checkout",
       "component": "StripeCheckout",
       "module": "profile",
       "auth": true,
@@ -926,12 +896,12 @@
       "tags": [
         "stripe"
       ],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "payment-history",
-      "path": "/profile/payment/history",
+      "path": "/profile/payment-history",
       "component": "PaymentHistoryPage",
       "module": "profile",
       "auth": true,
@@ -942,8 +912,8 @@
         "payment"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "profile-badge",
@@ -961,7 +931,7 @@
     },
     {
       "id": "proposals",
-      "path": "/profile/proposals",
+      "path": "/profile/my-tasks/proposals",
       "component": "ProposalsPage",
       "module": "profile",
       "auth": true,
@@ -972,8 +942,8 @@
         "proposals"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "support-tickets",
@@ -1021,7 +991,8 @@
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved.",
+      "sample_path": "/profile/support/tickets/1"
     },
     {
       "id": "browse-tasks",
@@ -1121,7 +1092,7 @@
     },
     {
       "id": "service-order",
-      "path": "/service-order/:id",
+      "path": "/profile/service_progress/:order_id/:post_id",
       "component": "ServiceOrderPage",
       "module": "marketplace",
       "auth": true,
@@ -1132,8 +1103,9 @@
         "service-posting"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31.",
+      "sample_path": "/service-order/1"
     },
     {
       "id": "service-details",
@@ -1149,11 +1121,11 @@
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /browse/service/details/ not present in bundle; needs manual mapping on 2026-05-31."
     },
     {
       "id": "task-details",
-      "path": "/task/:id",
+      "path": "/browse/task/details/",
       "component": "TaskDetails",
       "module": "marketplace",
       "auth": false,
@@ -1165,11 +1137,12 @@
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved.",
+      "sample_path": "/browse/task/details/?~d152aafb-ab53-4254-9274-4e9b5bb391d2"
     },
     {
       "id": "task-workspace",
-      "path": "/task/:id/workspace",
+      "path": "/browse/task/details/task-workspace/:id",
       "component": "TaskWorkspace",
       "module": "marketplace",
       "auth": true,
@@ -1180,8 +1153,9 @@
         "task-posting"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31.",
+      "sample_path": "/task/1/workspace"
     },
     {
       "id": "browse-post",
@@ -1213,11 +1187,12 @@
       ],
       "tags": [],
       "inferred": false,
-      "notes": "Variant of /browse with type parameter. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Variant of /browse with type parameter. Verified missing on 2026-05-28 — no path variant resolved.",
+      "sample_path": "/browse/services"
     },
     {
       "id": "request-proposal",
-      "path": "/request-proposal",
+      "path": "/browse/request/details/proposal",
       "component": "RequestProposalPage",
       "module": "marketplace",
       "auth": true,
@@ -1228,12 +1203,12 @@
         "proposals"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "request-details",
-      "path": "/request/:id",
+      "path": "/browse/request/details/",
       "component": "RequestDetails",
       "module": "marketplace",
       "auth": true,
@@ -1245,11 +1220,12 @@
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved.",
+      "sample_path": "/browse/request/details/?~d152aafb-ab53-4254-9274-4e9b5bb391d2"
     },
     {
       "id": "request-progress",
-      "path": "/request/:id/progress",
+      "path": "/profile/my_workspace/request_progress",
       "component": "RequestProgressPage",
       "module": "marketplace",
       "auth": true,
@@ -1260,12 +1236,12 @@
         "proposals"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "exchange-request",
-      "path": "/exchange-request",
+      "path": "/browse/exchange/request/:post_id/:user_id",
       "component": "ExchangeRequest",
       "module": "marketplace",
       "auth": true,
@@ -1276,12 +1252,12 @@
         "exchange"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "exchange-details-marketplace",
-      "path": "/exchange/:id",
+      "path": "/browse/exchange/details/",
       "component": "ExchangeDetails",
       "module": "marketplace",
       "auth": true,
@@ -1293,11 +1269,12 @@
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Possibly duplicate of profile/exchange/:id. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Possibly duplicate of profile/exchange/:id. Verified missing on 2026-05-28 — no path variant resolved.",
+      "sample_path": "/browse/exchange/details/?~d152aafb-ab53-4254-9274-4e9b5bb391d2"
     },
     {
       "id": "resource-details",
-      "path": "/resource/:id",
+      "path": "/browse/resource/details/",
       "component": "ResourceDetails",
       "module": "marketplace",
       "auth": false,
@@ -1309,11 +1286,12 @@
       ],
       "tags": [],
       "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved.",
+      "sample_path": "/browse/resource/details/?~d152aafb-ab53-4254-9274-4e9b5bb391d2"
     },
     {
       "id": "resource-request",
-      "path": "/resource-request",
+      "path": "/browse/resource/details/send_request/",
       "component": "ResourceRequest",
       "module": "marketplace",
       "auth": true,
@@ -1324,12 +1302,12 @@
         "proposals"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "request-submitted",
-      "path": "/request-submitted",
+      "path": "/browse/resource/details/send_request/request-submitted",
       "component": "RequestSubmitted",
       "module": "marketplace",
       "auth": true,
@@ -1340,12 +1318,12 @@
         "proposals"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Confirmation page. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Confirmation page. Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "work-progress",
-      "path": "/work-progress/:id",
+      "path": "/profile/work_progress",
       "component": "WorkProgressPage",
       "module": "marketplace",
       "auth": true,
@@ -1356,12 +1334,12 @@
         "task-posting"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "service-progress",
-      "path": "/service-progress/:id",
+      "path": "/profile/service_progress/:order_id/:post_id",
       "component": "ServiceProgress",
       "module": "marketplace",
       "auth": true,
@@ -1372,8 +1350,9 @@
         "service-posting"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31.",
+      "sample_path": "/service-progress/1"
     },
     {
       "id": "supporters",
@@ -1391,7 +1370,7 @@
     },
     {
       "id": "supporter-dashboard",
-      "path": "/supporter/dashboard",
+      "path": "/profile/supporter_dashboard",
       "component": "SupporterDashboard",
       "module": "marketplace",
       "auth": true,
@@ -1400,12 +1379,12 @@
       "owner": "unassigned",
       "flows": [],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "supporter-work-progress",
-      "path": "/supporter/work-progress/:id",
+      "path": "/profile/supporter_dashboard/work_progress",
       "component": "SupporterWorkProgress",
       "module": "marketplace",
       "auth": true,
@@ -1414,12 +1393,12 @@
       "owner": "unassigned",
       "flows": [],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "featured-tasks-services",
-      "path": "/featured",
+      "path": "/featured_tasks_services",
       "component": "FeaturedTasksServices",
       "module": "marketplace",
       "auth": false,
@@ -1430,12 +1409,12 @@
         "discovery"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "newest-tasks-services",
-      "path": "/newest",
+      "path": "/newest_tasks_services",
       "component": "NewestTasksServices",
       "module": "marketplace",
       "auth": false,
@@ -1446,12 +1425,12 @@
         "discovery"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "recommended-tasks-services",
-      "path": "/recommended",
+      "path": "/recommended_tasks_services",
       "component": "RecommendedTasksServices",
       "module": "marketplace",
       "auth": true,
@@ -1462,24 +1441,8 @@
         "discovery"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
-    },
-    {
-      "id": "search-result",
-      "path": "/search",
-      "component": "SearchResultPage",
-      "module": "marketplace",
-      "auth": false,
-      "priority": "P0",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [
-        "discovery"
-      ],
-      "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path corrected via bundle extraction on 2026-05-31."
     },
     {
       "id": "global-calendar-view",
@@ -1510,20 +1473,6 @@
       "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
     },
     {
-      "id": "my-calendar",
-      "path": "/calendar/my",
-      "component": "MyCalendarPage",
-      "module": "calendar",
-      "auth": true,
-      "priority": "P1",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [],
-      "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
-    },
-    {
       "id": "post-proposal",
       "path": "/calendar/post-proposal",
       "component": "PostProposalPage",
@@ -1538,20 +1487,6 @@
       "tags": [],
       "inferred": true,
       "notes": "Path inferred — confirm with developer. Possibly belongs to proposals module. Verified missing on 2026-05-28 — no path variant resolved."
-    },
-    {
-      "id": "messages",
-      "path": "/messages",
-      "component": "Messages",
-      "module": "social",
-      "auth": true,
-      "priority": "P0",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [],
-      "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
     },
     {
       "id": "notifications",
@@ -1598,20 +1533,6 @@
       "notes": ""
     },
     {
-      "id": "blog-details",
-      "path": "/blog/:slug",
-      "component": "BlogDetails",
-      "module": "content",
-      "auth": false,
-      "priority": "P2",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [],
-      "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
-    },
-    {
       "id": "help",
       "path": "/help",
       "component": "HelpPage",
@@ -1644,24 +1565,6 @@
       "notes": ""
     },
     {
-      "id": "premier-support",
-      "path": "/premier-support",
-      "component": "PremierSupport",
-      "module": "support",
-      "auth": true,
-      "priority": "P2",
-      "status": "pending",
-      "owner": "unassigned",
-      "flows": [
-        "support"
-      ],
-      "tags": [
-        "premium"
-      ],
-      "inferred": true,
-      "notes": "Path and component name inferred — original had typo 'premer support'. Confirm with developer. Verified missing on 2026-05-28 — no path variant resolved."
-    },
-    {
       "id": "faq",
       "path": "/faq",
       "component": "FAQPage",
@@ -1676,6 +1579,504 @@
       "tags": [],
       "inferred": false,
       "notes": "May duplicate /help_faq."
+    },
+    {
+      "id": "blog-details",
+      "path": "/blog/:id",
+      "component": "BlogDetails",
+      "module": "content",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31. Merged from inferred orphan blog-details (was /blog/:slug) on 2026-05-31."
+    },
+    {
+      "id": "details-send-proposal",
+      "path": "/browse-tasks/details/send_proposal/:task_id",
+      "component": "SendProposalPage",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "offer-details",
+      "path": "/browse/offer/details",
+      "component": "DetailsPage",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "offer-send-offer",
+      "path": "/browse/offer/send_offer/:id",
+      "component": "SendOfferPage",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "calendar-view",
+      "path": "/calendar_view",
+      "component": "CalendarViewPage",
+      "module": "calendar",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "calendar-view-2",
+      "path": "/calendar_view/:tid/:sid/:cid/:title/:keyword",
+      "component": "CalendarViewPage",
+      "module": "calendar",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "messages",
+      "path": "/chat_room",
+      "component": "Messages",
+      "module": "social",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31. Merged from inferred orphan messages (was /messages) on 2026-05-31."
+    },
+    {
+      "id": "faq-2",
+      "path": "/FAQ",
+      "component": "FaqPage",
+      "module": "public",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "my-calendar",
+      "path": "/my_calendar",
+      "component": "MyCalendarPage",
+      "module": "calendar",
+      "auth": false,
+      "priority": "P1",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31. Merged from inferred orphan my-calendar (was /calendar/my) on 2026-05-31."
+    },
+    {
+      "id": "add-fund-checkout",
+      "path": "/profile/billing_payment/add_fund/checkout",
+      "component": "CheckoutPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "billing-payment-payments",
+      "path": "/profile/billing_payment/payments",
+      "component": "PaymentsPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "billing-payment-payments-2",
+      "path": "/profile/billing_payment/payments/:slugs",
+      "component": "PaymentsPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "payments-checkout",
+      "path": "/profile/billing_payment/payments/checkout",
+      "component": "CheckoutPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "profile-confirm-proposal",
+      "path": "/profile/confirm-proposal",
+      "component": "ConfirmProposalPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "dashboard",
+      "path": "/profile/dashboard",
+      "component": "DashboardPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31. Merged from inferred orphan dashboard (was /dashboard) on 2026-05-31."
+    },
+    {
+      "id": "featured-listing-payment",
+      "path": "/profile/featured_listing/payment",
+      "component": "PaymentPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "profile-invite-member",
+      "path": "/profile/invite_member",
+      "component": "InviteMemberPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "profile-manage-workprogress",
+      "path": "/profile/manage_workprogress",
+      "component": "ManageWorkprogressPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "my-workspace-supporters",
+      "path": "/profile/my_workspace/supporters/:post_id",
+      "component": "SupportersPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "profile-my-progress",
+      "path": "/profile/my-progress",
+      "component": "MyProgressPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "profile-my-proposal",
+      "path": "/profile/my-proposal",
+      "component": "MyProposalPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "my-services",
+      "path": "/profile/my-service",
+      "component": "MyServicePage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "service-posting"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31. Merged from inferred orphan my-services (was /profile/my-services) on 2026-05-31."
+    },
+    {
+      "id": "profile-organization-invites",
+      "path": "/profile/organization_invites",
+      "component": "OrganizationInvitesPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "profile-organization-2",
+      "path": "/profile/organization/:slug",
+      "component": "OrganizationPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "premier-support",
+      "path": "/profile/premium_support/",
+      "component": "PremierSupport",
+      "module": "support",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "support"
+      ],
+      "tags": [
+        "premium"
+      ],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31. Merged from inferred orphan premier-support (was /premier-support) on 2026-05-31."
+    },
+    {
+      "id": "profile-proposal-details",
+      "path": "/profile/proposal_details",
+      "component": "ProposalDetailsPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "profile-room",
+      "path": "/profile/room",
+      "component": "RoomPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "profile-subscriptions",
+      "path": "/profile/subscriptions",
+      "component": "SubscriptionsPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "profile-view",
+      "path": "/profile/view",
+      "component": "ViewPage",
+      "module": "profile",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "public-profile",
+      "path": "/public_profile",
+      "component": "PublicProfilePage",
+      "module": "public",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "search-result",
+      "path": "/search/results",
+      "component": "SearchResultPage",
+      "module": "marketplace",
+      "auth": false,
+      "priority": "P0",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [
+        "discovery"
+      ],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31. Merged from inferred orphan search-result (was /search) on 2026-05-31."
+    },
+    {
+      "id": "send-proposal",
+      "path": "/send_proposal",
+      "component": "SendProposalPage",
+      "module": "public",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "settings",
+      "path": "/settings",
+      "component": "SettingsPage",
+      "module": "settings",
+      "auth": true,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "top-experts",
+      "path": "/top_experts",
+      "component": "TopExpertsPage",
+      "module": "public",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
+    },
+    {
+      "id": "wallet",
+      "path": "/wallet",
+      "component": "WalletPage",
+      "module": "public",
+      "auth": false,
+      "priority": "P2",
+      "status": "pending",
+      "owner": "unassigned",
+      "flows": [],
+      "tags": [],
+      "inferred": false,
+      "notes": "Discovered via bundle extraction on 2026-05-31."
     }
   ]
 }

@@ -48,6 +48,11 @@
           "pattern": "^/.*",
           "description": "URL path as it appears in the router. Kept as developer wrote it."
         },
+        "sample_path": {
+          "type": "string",
+          "pattern": "^/[^:]*$",
+          "description": "Concrete path with router params substituted, used by the verifier. Only meaningful when `path` contains :params. Must not contain a colon."
+        },
         "component": {
           "type": "string",
           "description": "React component name (PascalCase)."

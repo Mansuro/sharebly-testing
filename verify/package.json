@@ -9,6 +9,12 @@
     "verify:all": "node verify-http.js && node verify-browser.js",
     "report": "node report.js",
     "calibrate": "node calibrate.js",
+    "crawl": "node crawl.js",
+    "extract": "node extract-routes.js",
+    "apply-bundle": "node apply-bundle.js",
+    "apply-bundle:force": "node apply-bundle.js --apply",
+    "merge-orphans": "node merge-orphans.js",
+    "merge-orphans:force": "node merge-orphans.js --apply",
     "apply": "node apply.js",
     "apply:force": "node apply.js --apply"
   },

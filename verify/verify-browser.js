@@ -380,17 +380,35 @@ async function main() {
   const httpResults = loadJson('http-results.json');
 
   let checks = [];
+  let skippedParameterized = 0;
   for (const route of routes) {
-    const variants = generateVariants(route);
+    let concretePath;
+    if (route.sample_path) {
+      concretePath = route.sample_path;
+    } else if (route.path.includes(':')) {
+      skippedParameterized++;
+      continue;
+    } else {
+      concretePath = route.path;
+    }
+
+    // Variants only make sense for paths without query strings.
+    // For sample_paths that include a query, just check the sample_path.
+    const variants = concretePath.includes('?')
+      ? [concretePath]
+      : generateVariants({ ...route, path: concretePath });
     for (const variant of variants) {
       checks.push({
         route_id: route.id,
         path: variant,
-        is_primary: variant === route.path,
-        is_variant: variant !== route.path,
+        is_primary: variant === concretePath,
+        is_variant: variant !== concretePath,
         auth_required: route.auth,
       });
     }
+  }
+  if (skippedParameterized > 0) {
+    console.log(`Skipping ${skippedParameterized} parameterized routes with no sample_path`);
   }
 
   if (httpResults) {
