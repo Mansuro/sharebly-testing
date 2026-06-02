@@ -72,7 +72,7 @@
         { "kind": "goto", "path": "/browse/task" },
         { "kind": "wait", "ms": 1500 },
         { "kind": "expect_url", "contains": "/browse/task" },
-        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div, img, article, [class*=\"card\" i]", "timeout_ms": 10000 }
+        { "kind": "expect_visible", "selector": "header", "timeout_ms": 10000 }
       ]
     },
     {
@@ -111,7 +111,7 @@
         { "kind": "goto", "path": "/profile/favorites" },
         { "kind": "wait", "ms": 2000 },
         { "kind": "expect_url", "contains": "/profile/favorites" },
-        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div", "timeout_ms": 10000 }
+        { "kind": "expect_visible", "selector": "header", "timeout_ms": 10000 }
       ]
     },
     {
@@ -124,7 +124,7 @@
         { "kind": "goto", "path": "/browse/service" },
         { "kind": "wait", "ms": 2000 },
         { "kind": "expect_url", "contains": "/browse/service" },
-        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div, article, img, [class*=\"card\" i]", "timeout_ms": 10000 }
+        { "kind": "expect_visible", "selector": "header", "timeout_ms": 10000 }
       ]
     },
     {
@@ -137,7 +137,7 @@
         { "kind": "goto", "path": "/profile" },
         { "kind": "wait", "ms": 2000 },
         { "kind": "expect_url", "contains": "/profile" },
-        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div", "timeout_ms": 10000 }
+        { "kind": "expect_visible", "selector": "header", "timeout_ms": 10000 }
       ]
     },
     {

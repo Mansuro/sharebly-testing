@@ -9,6 +9,7 @@
     "verify:all": "node verify-http.js && node verify-browser.js",
     "verify:issues": "node verify-issues.js",
     "verify:scenarios": "node verify-scenarios.js",
+    "verify:link-sources": "node find-link-sources.js",
     "report": "node report.js",
     "calibrate": "node calibrate.js",
     "crawl": "node crawl.js",

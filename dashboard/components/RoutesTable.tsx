@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import type { RouteRecord } from '@/lib/data';
+import type { RouteRecord, LinkSource } from '@/lib/data';
 import { Path } from './Path';
 
 type Filter = 'all' | 'failing' | 'redirected' | 'ok';
@@ -49,7 +49,13 @@ function statusInfo(r: RouteRecord): { label: string; color: string } {
   return { label: '???', color: 'var(--neutral)' };
 }
 
-export function RoutesTable({ routes }: { routes: RouteRecord[] }) {
+export function RoutesTable({
+  routes,
+  sourcesByTarget,
+}: {
+  routes: RouteRecord[];
+  sourcesByTarget?: Record<string, LinkSource[]>;
+}) {
   const [filter, setFilter] = useState<Filter>('all');
   const [query, setQuery] = useState('');
 
@@ -144,48 +150,107 @@ export function RoutesTable({ routes }: { routes: RouteRecord[] }) {
             No routes match {query ? `"${query}"` : 'this filter'}.
           </div>
         ) : (
-          visible.map((r) => <RouteRow key={`${r.id}-${r.path}`} route={r} />)
+          visible.map((r) => (
+            <RouteRow
+              key={`${r.id}-${r.path}`}
+              route={r}
+              sources={sourcesByTarget?.[r.path]}
+            />
+          ))
         )}
       </div>
     </>
   );
 }
 
-function RouteRow({ route }: { route: RouteRecord }) {
+function RouteRow({
+  route,
+  sources,
+}: {
+  route: RouteRecord;
+  sources?: LinkSource[];
+}) {
   const s = statusInfo(route);
   const finalPath =
     route.suggested_path ||
     (route.final_path && route.final_path !== route.path ? route.final_path : null);
 
-  return (
-    <div className="border-b border-[var(--border)] last:border-b-0 row-hover px-4 py-2.5 flex items-center gap-4">
-      {/* HTTP status chip */}
-      <span
-        className="mono text-[10px] tabular font-semibold px-1.5 py-[2px] border shrink-0 w-[44px] text-center"
-        style={{ color: s.color, borderColor: `${s.color}40`, background: `${s.color}1a` }}
-      >
-        {s.label}
-      </span>
+  // Only annotate when the row is in the "failing" bucket and we have
+  // discovered sources for this path. Show up to 3 to keep the row compact.
+  const showSources =
+    bucket(route) === 'failing' && Array.isArray(sources) && sources.length > 0;
+  const shownSources = showSources ? sources!.slice(0, 3) : [];
+  const extraCount = showSources ? Math.max(0, sources!.length - shownSources.length) : 0;
 
-      {/* Path + (optional) redirect arrow */}
-      <div className="min-w-0 flex-1 flex items-baseline gap-2 flex-wrap">
-        <div className="min-w-0 max-w-full truncate">
-          <Path path={route.path} className="text-[var(--text-dim)]" />
+  return (
+    <div className="border-b border-[var(--border)] last:border-b-0 row-hover px-4 py-2.5">
+      <div className="flex items-center gap-4">
+        {/* HTTP status chip */}
+        <span
+          className="mono text-[10px] tabular font-semibold px-1.5 py-[2px] border shrink-0 w-[44px] text-center"
+          style={{ color: s.color, borderColor: `${s.color}40`, background: `${s.color}1a` }}
+        >
+          {s.label}
+        </span>
+
+        {/* Path + (optional) redirect arrow */}
+        <div className="min-w-0 flex-1 flex items-baseline gap-2 flex-wrap">
+          <div className="min-w-0 max-w-full truncate">
+            <Path path={route.path} className="text-[var(--text-dim)]" />
+          </div>
+          {finalPath && (
+            <>
+              <span className="mono text-[11px] text-[var(--text-faint)] shrink-0">→</span>
+              <div className="min-w-0 max-w-full truncate">
+                <Path path={finalPath} className="text-[var(--text-faint)]" />
+              </div>
+            </>
+          )}
         </div>
-        {finalPath && (
-          <>
-            <span className="mono text-[11px] text-[var(--text-faint)] shrink-0">→</span>
-            <div className="min-w-0 max-w-full truncate">
-              <Path path={finalPath} className="text-[var(--text-faint)]" />
-            </div>
-          </>
-        )}
+
+        {/* Route id */}
+        <span className="mono text-[11px] text-[var(--text-faint)] tabular shrink-0 hidden sm:inline">
+          {route.id}
+        </span>
       </div>
 
-      {/* Route id */}
-      <span className="mono text-[11px] text-[var(--text-faint)] tabular shrink-0 hidden sm:inline">
-        {route.id}
+      {showSources && (
+        <div className="mt-1.5 pl-[60px] flex flex-col gap-0.5">
+          <div className="eyebrow text-[var(--text-faint)]">Linked from</div>
+          {shownSources.map((src, i) => (
+            <LinkedFrom key={i} source={src} />
+          ))}
+          {extraCount > 0 && (
+            <div className="mono text-[10px] text-[var(--text-faint)] tracking-wider uppercase tabular">
+              + {extraCount} more
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function LinkedFrom({ source }: { source: LinkSource }) {
+  const kind = (source.element_kind || 'link').toUpperCase();
+  const label = source.label?.trim();
+
+  return (
+    <div className="flex items-baseline gap-2 flex-wrap min-w-0">
+      <span
+        className="mono text-[9px] tracking-wider tabular text-[var(--text-faint)] border border-[var(--border)] px-1 py-[1px] shrink-0"
+        title={source.selector || undefined}
+      >
+        {kind}
       </span>
+      <div className="min-w-0 max-w-full truncate">
+        <Path path={source.source_path} className="text-[var(--text-dim)]" />
+      </div>
+      {label && (
+        <span className="mono text-[11px] text-[var(--text-dim)] truncate min-w-0">
+          “{label}”
+        </span>
+      )}
     </div>
   );
 }

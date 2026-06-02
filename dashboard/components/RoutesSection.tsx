@@ -1,4 +1,4 @@
-import type { RouteRecord } from '@/lib/data';
+import type { RouteRecord, LinkSource } from '@/lib/data';
 import { RoutesTable } from './RoutesTable';
 
 /**
@@ -6,7 +6,13 @@ import { RoutesTable } from './RoutesTable';
  * counts from the route records and hands the per-row rendering off
  * to <RoutesTable />, which owns the filter state.
  */
-export function RoutesSection({ routes }: { routes: RouteRecord[] }) {
+export function RoutesSection({
+  routes,
+  sourcesByTarget,
+}: {
+  routes: RouteRecord[];
+  sourcesByTarget?: Record<string, LinkSource[]>;
+}) {
   const counts = bucketCounts(routes);
 
   return (
@@ -36,7 +42,7 @@ export function RoutesSection({ routes }: { routes: RouteRecord[] }) {
         className="rise rule-l pl-6 flex flex-col"
         style={{ animationDelay: '380ms' }}
       >
-        <RoutesTable routes={routes} />
+        <RoutesTable routes={routes} sourcesByTarget={sourcesByTarget} />
       </div>
     </section>
   );
