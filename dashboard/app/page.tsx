@@ -8,17 +8,20 @@ import {
 } from '@/lib/data';
 
 import { Header } from '@/components/Header';
+import { PageTabs } from '@/components/PageTabs';
 import { HealthSummary } from '@/components/HealthSummary';
 import { DiffCallout } from '@/components/DiffCallout';
 import { SolvedRegressionAlert } from '@/components/SolvedRegressionAlert';
 import { AreaSection } from '@/components/AreaSection';
 import { EmptyState } from '@/components/EmptyState';
 import { ScenariosSection } from '@/components/ScenariosSection';
-import { RoutesSection } from '@/components/RoutesSection';
 
 export const revalidate = 60;
 
 export default async function Page() {
+  // getRoutes is also fetched here just for the tab badge count — the Routes
+  // SECTION itself moved to /routes. The Overview tab now focuses on issues +
+  // scenarios + diff alerts.
   const [data, scenarios, routes] = await Promise.all([
     getResults(),
     getScenarios(),
@@ -36,8 +39,6 @@ export default async function Page() {
   const grouped = groupByArea(data.results);
   const areas = Array.from(grouped.entries());
 
-  // Resolve diff arrays (lists of ids) to full IssueResult records so the
-  // callouts can render meaningful details without re-fetching.
   const byId = new Map(data.results.map((r) => [r.id, r]));
   const newlyFixed: IssueResult[] = (data.diff_vs_previous?.newly_fixed ?? [])
     .map((id) => byId.get(id))
@@ -46,8 +47,6 @@ export default async function Page() {
     .map((id) => byId.get(id))
     .filter((r): r is IssueResult => Boolean(r));
 
-  // Issues the user marked as resolved but that are failing again — these
-  // are real regressions and deserve a top-of-page alert.
   const regressedSolved = data.results.filter(
     (r) => r.issue_status === 'resolved' && r.verdict === 'fail',
   );
@@ -59,6 +58,13 @@ export default async function Page() {
         checkedAt={data.checked_at}
         authenticated={data.authenticated}
         totalIssues={data.total_issues}
+      />
+
+      <PageTabs
+        tabs={[
+          { href: '/',       label: 'Overview', count: data.total_issues },
+          { href: '/routes', label: 'Routes',   count: routes?.results.length },
+        ]}
       />
 
       <HealthSummary counts={counts} total={data.total_issues} />
@@ -75,10 +81,6 @@ export default async function Page() {
 
       {scenarios !== null && scenarios.results.length > 0 && (
         <ScenariosSection results={scenarios.results} />
-      )}
-
-      {routes !== null && routes.results.length > 0 && (
-        <RoutesSection routes={routes.results} />
       )}
 
       <section className="max-w-[1200px] mx-auto px-6 py-10">
