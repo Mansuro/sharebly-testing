@@ -56,7 +56,7 @@
         { "kind": "wait", "ms": 1000 },
         { "kind": "fill", "selector": "[role=\"dialog\"] input[type=\"email\"], [role=\"dialog\"] input[type=\"text\"]:not([type=\"password\"]), .MuiDialog-root input[type=\"email\"], .MuiDialog-root input[type=\"text\"]:not([type=\"password\"]), .MuiModal-root input[type=\"email\"], .MuiModal-root input[type=\"text\"]:not([type=\"password\"]), input[type=\"email\"], input[type=\"text\"]:not([type=\"password\"])", "value": "$EMAIL" },
         { "kind": "fill", "selector": "input[type=\"password\"]", "value": "$PASSWORD" },
-        { "kind": "click", "selector": "button[type=\"submit\"], button:has-text(\"Log in\"), button:has-text(\"Sign in\")" },
+        { "kind": "click", "selector": "[role=\"dialog\"] button[type=\"submit\"], .MuiDialog-root button[type=\"submit\"], .MuiModal-root button[type=\"submit\"], form button[type=\"submit\"], [role=\"dialog\"] button:has-text(\"Log in\"), .MuiDialog-root button:has-text(\"Log in\"), .MuiModal-root button:has-text(\"Log in\"), [role=\"dialog\"] button.MuiButton-contained, .MuiDialog-root button.MuiButton-contained, .MuiModal-root button.MuiButton-contained" },
         { "kind": "expect_text", "text": "Authenticated", "timeout_ms": 15000 }
       ]
     },
