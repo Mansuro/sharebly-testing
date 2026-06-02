@@ -74,17 +74,17 @@ jobs:
           SHAREBLY_TEST_PASSWORD: ${{ secrets.SHAREBLY_TEST_PASSWORD }}
         run: npm run verify:scenarios
 
+      - name: Build merged routes.status.json
+        continue-on-error: true
+        working-directory: verify
+        run: npm run report
+
       - name: Run verify:link-sources
         continue-on-error: true
         working-directory: verify
         env:
           SHAREBLY_URL: ${{ vars.SHAREBLY_URL || 'http://78.46.183.126:5173' }}
         run: npm run verify:link-sources
-
-      - name: Build merged routes.status.json
-        continue-on-error: true
-        working-directory: verify
-        run: npm run report
 
       - name: Publish results to data branch
         if: always()
