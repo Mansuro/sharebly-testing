@@ -7,6 +7,8 @@
     "verify:http": "node verify-http.js",
     "verify:browser": "node verify-browser.js",
     "verify:all": "node verify-http.js && node verify-browser.js",
+    "verify:issues": "node verify-issues.js",
+    "verify:scenarios": "node verify-scenarios.js",
     "report": "node report.js",
     "calibrate": "node calibrate.js",
     "crawl": "node crawl.js",
@@ -18,9 +20,13 @@
     "triage": "node triage.js",
     "triage:force": "node triage.js --apply",
     "apply": "node apply.js",
-    "apply:force": "node apply.js --apply"
+    "apply:force": "node apply.js --apply",
+    "smoke": "playwright test --config=playwright.config.js"
   },
   "dependencies": {
     "playwright": "^1.48.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
   }
 }

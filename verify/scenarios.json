@@ -1,0 +1,155 @@
+{
+  "$schema_notes": [
+    "Hand-curated scenarios derived from the project tracking spreadsheet:",
+    "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI",
+    "",
+    "A scenario is a named, ordered sequence of Playwright steps that exercises",
+    "an end-to-end workflow. The runner (verify-scenarios.js) executes them one",
+    "step at a time, recording per-step PASS/FAIL plus an overall verdict.",
+    "",
+    "Scenario fields:",
+    "  id           — kebab-case stable identifier (used in result diffs)",
+    "  name         — human-readable scenario name",
+    "  description  — one sentence describing what this validates",
+    "  area         — feature area used for grouping in the dashboard",
+    "  auth         — true if the steps require a pre-authenticated session.",
+    "                 When auth=true and no auth-state.json is present, the",
+    "                 runner marks the scenario as skipped (it does NOT log in)",
+    "  steps        — ordered list of step objects (see Step Kinds below)",
+    "",
+    "Step Kinds:",
+    "  goto           { kind, path }",
+    "                 Navigate to CONFIG.BASE_URL + path. Waits for",
+    "                 DOMContentLoaded.",
+    "  click          { kind, selector?, text? }",
+    "                 Click an element. Provide EITHER a CSS/Playwright",
+    "                 selector OR a text string (matched via getByText).",
+    "  fill           { kind, selector, value }",
+    "                 Fill an input. The value may be a placeholder:",
+    "                   $EMAIL    -> CONFIG.TEST_EMAIL",
+    "                   $PASSWORD -> CONFIG.TEST_PASSWORD",
+    "  expect_text    { kind, text, timeout_ms? }",
+    "                 Assert text is visible anywhere on the page.",
+    "  expect_url     { kind, contains }",
+    "                 Assert the current URL contains the given substring.",
+    "  expect_visible { kind, selector, timeout_ms? }",
+    "                 Assert an element matching the selector is visible.",
+    "  wait           { kind, ms }",
+    "                 Pause for ms milliseconds (use sparingly).",
+    "",
+    "Note on selectors: these are best-effort guesses based on the visible app",
+    "shape (MUI components, navbar 'Log in' button, text-based links). Run",
+    "verify:scenarios and refine selectors when steps fail for selector reasons",
+    "rather than real product bugs."
+  ],
+  "scenarios": [
+    {
+      "id": "auth-email-login",
+      "name": "Email login via navbar modal",
+      "description": "Open the navbar login modal, submit credentials, confirm the modal closes and the session is authenticated.",
+      "area": "Authentication",
+      "auth": false,
+      "steps": [
+        { "kind": "goto", "path": "/" },
+        { "kind": "click", "text": "Log in" },
+        { "kind": "expect_visible", "selector": "[role=\"dialog\"], .MuiDialog-root", "timeout_ms": 5000 },
+        { "kind": "fill", "selector": "input[type=\"email\"], input[type=\"text\"]:not([type=\"password\"])", "value": "$EMAIL" },
+        { "kind": "fill", "selector": "input[type=\"password\"]", "value": "$PASSWORD" },
+        { "kind": "click", "selector": "button[type=\"submit\"]" },
+        { "kind": "expect_text", "text": "Authenticated", "timeout_ms": 10000 }
+      ]
+    },
+    {
+      "id": "home-browse-tasks-entry",
+      "name": "Home to Browse Tasks",
+      "description": "Land on the home page and navigate into the Browse Tasks list.",
+      "area": "Home Flow",
+      "auth": false,
+      "steps": [
+        { "kind": "goto", "path": "/" },
+        { "kind": "wait", "ms": 1200 },
+        { "kind": "goto", "path": "/browse/task" },
+        { "kind": "expect_url", "contains": "/browse/task" },
+        { "kind": "expect_visible", "selector": "img, [class*=\"card\" i], article", "timeout_ms": 8000 }
+      ]
+    },
+    {
+      "id": "task-browse-search",
+      "name": "Browse Tasks search input present",
+      "description": "Visit the Browse Tasks page and verify a search input is present and usable.",
+      "area": "Task Management",
+      "auth": false,
+      "steps": [
+        { "kind": "goto", "path": "/browse/task" },
+        { "kind": "wait", "ms": 1500 },
+        { "kind": "expect_visible", "selector": "input[type=\"search\"], input[placeholder*=\"search\" i], [role=\"searchbox\"]", "timeout_ms": 8000 },
+        { "kind": "fill", "selector": "input[type=\"search\"], input[placeholder*=\"search\" i], [role=\"searchbox\"]", "value": "cleaning" }
+      ]
+    },
+    {
+      "id": "task-create-flow",
+      "name": "Task creation form loads",
+      "description": "Authenticated user can open the post-task form and see editable inputs.",
+      "area": "Task Management",
+      "auth": true,
+      "steps": [
+        { "kind": "goto", "path": "/post-task" },
+        { "kind": "wait", "ms": 1500 },
+        { "kind": "expect_url", "contains": "/post-task" },
+        { "kind": "expect_visible", "selector": "form input, form textarea", "timeout_ms": 8000 }
+      ]
+    },
+    {
+      "id": "task-favorite-list",
+      "name": "Favorites list opens",
+      "description": "Authenticated user can navigate to their favorites page and see the results heading.",
+      "area": "Task Management",
+      "auth": true,
+      "steps": [
+        { "kind": "goto", "path": "/profile/favorites" },
+        { "kind": "wait", "ms": 1500 },
+        { "kind": "expect_url", "contains": "/profile/favorites" },
+        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div", "timeout_ms": 8000 }
+      ]
+    },
+    {
+      "id": "service-browse",
+      "name": "Browse Services page loads",
+      "description": "Visit the Browse Services page and verify a list/grid renders.",
+      "area": "Service Management",
+      "auth": false,
+      "steps": [
+        { "kind": "goto", "path": "/browse/service" },
+        { "kind": "wait", "ms": 1500 },
+        { "kind": "expect_url", "contains": "/browse/service" },
+        { "kind": "expect_visible", "selector": "article, [class*=\"card\" i], img", "timeout_ms": 8000 }
+      ]
+    },
+    {
+      "id": "profile-view",
+      "name": "View Profile",
+      "description": "Authenticated user can open their profile page and see the profile container.",
+      "area": "Profile Management",
+      "auth": true,
+      "steps": [
+        { "kind": "goto", "path": "/profile" },
+        { "kind": "wait", "ms": 1500 },
+        { "kind": "expect_url", "contains": "/profile" },
+        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div", "timeout_ms": 8000 }
+      ]
+    },
+    {
+      "id": "profile-edit-form-editable",
+      "name": "Edit Profile form is editable",
+      "description": "Authenticated user can reach the account settings page and see at least one editable input.",
+      "area": "Profile Management",
+      "auth": true,
+      "steps": [
+        { "kind": "goto", "path": "/settings/account" },
+        { "kind": "wait", "ms": 1500 },
+        { "kind": "expect_url", "contains": "/settings/account" },
+        { "kind": "expect_visible", "selector": "form input:not([disabled]):not([readonly]), form textarea:not([disabled]):not([readonly])", "timeout_ms": 8000 }
+      ]
+    }
+  ]
+}

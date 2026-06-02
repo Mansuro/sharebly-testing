@@ -68,3 +68,11 @@ actually renders unknown routes — usually there's a unique element or message.
 If the developer used non-standard form field names, update
 `LOGIN_SELECTORS` in `config.js`. Open the login page in a browser, inspect
 the email/password inputs, and put the selectors there.
+
+## Continuous verification
+
+A scheduled GitHub Actions workflow runs the verifier daily and publishes the
+JSON/Markdown outputs to a `data` branch in this repository for the dashboard
+to consume. See [`CI.md`](./CI.md) for the cron schedule, the secrets/variables
+to configure, and the raw URL pattern to point `DATA_URL` / `SCENARIOS_DATA_URL`
+at on Vercel.

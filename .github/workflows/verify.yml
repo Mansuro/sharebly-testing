@@ -1,0 +1,134 @@
+name: Verify Sharebly
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'verify/**'
+
+jobs:
+  verify-and-publish:
+    name: verify-and-publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: verify/package-lock.json
+
+      - name: Install verifier dependencies
+        working-directory: verify
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        working-directory: verify
+        run: npx playwright install --with-deps chromium
+
+      - name: Run verify:http
+        continue-on-error: true
+        working-directory: verify
+        env:
+          SHAREBLY_URL: ${{ vars.SHAREBLY_URL || 'http://78.46.183.126:5173' }}
+          SHAREBLY_TEST_EMAIL: ${{ secrets.SHAREBLY_TEST_EMAIL }}
+          SHAREBLY_TEST_PASSWORD: ${{ secrets.SHAREBLY_TEST_PASSWORD }}
+        run: npm run verify:http
+
+      - name: Run verify:browser
+        continue-on-error: true
+        working-directory: verify
+        env:
+          SHAREBLY_URL: ${{ vars.SHAREBLY_URL || 'http://78.46.183.126:5173' }}
+          SHAREBLY_TEST_EMAIL: ${{ secrets.SHAREBLY_TEST_EMAIL }}
+          SHAREBLY_TEST_PASSWORD: ${{ secrets.SHAREBLY_TEST_PASSWORD }}
+        run: npm run verify:browser
+
+      - name: Run verify:issues
+        continue-on-error: true
+        working-directory: verify
+        env:
+          SHAREBLY_URL: ${{ vars.SHAREBLY_URL || 'http://78.46.183.126:5173' }}
+          SHAREBLY_TEST_EMAIL: ${{ secrets.SHAREBLY_TEST_EMAIL }}
+          SHAREBLY_TEST_PASSWORD: ${{ secrets.SHAREBLY_TEST_PASSWORD }}
+        run: npm run verify:issues
+
+      - name: Run verify:scenarios
+        continue-on-error: true
+        working-directory: verify
+        env:
+          SHAREBLY_URL: ${{ vars.SHAREBLY_URL || 'http://78.46.183.126:5173' }}
+          SHAREBLY_TEST_EMAIL: ${{ secrets.SHAREBLY_TEST_EMAIL }}
+          SHAREBLY_TEST_PASSWORD: ${{ secrets.SHAREBLY_TEST_PASSWORD }}
+        run: npm run verify:scenarios
+
+      - name: Publish results to data branch
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          WORKTREE=/tmp/data-branch
+          OUTPUT_DIR="$GITHUB_WORKSPACE/verify/output"
+
+          # Fetch the data branch if it exists on the remote.
+          git fetch origin data || true
+
+          if git show-ref --verify --quiet refs/remotes/origin/data; then
+            echo "data branch exists on origin; creating worktree from it"
+            git worktree add "$WORKTREE" -B data origin/data
+          else
+            echo "data branch does not exist; creating orphan worktree"
+            git worktree add --detach "$WORKTREE" HEAD
+            (
+              cd "$WORKTREE"
+              git checkout --orphan data
+              git rm -rf . >/dev/null 2>&1 || true
+              # Clear the working directory of any leftovers.
+              find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+            )
+          fi
+
+          # Copy each published file if it exists in verify/output/.
+          for f in \
+            issue-results.json \
+            scenario-results.json \
+            report.md \
+            issues-report.md \
+            scenarios-report.md \
+            http-results.json \
+            browser-results.json \
+            routes.status.json; do
+            if [ -f "$OUTPUT_DIR/$f" ]; then
+              cp "$OUTPUT_DIR/$f" "$WORKTREE/$f"
+              echo "copied $f"
+            else
+              echo "skipped $f (not found)"
+            fi
+          done
+
+          cd "$WORKTREE"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --staged --quiet || git commit -m "chore(data): publish verifier results $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push origin HEAD:data
+
+      - name: Upload verifier output artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verifier-output
+          path: verify/output/

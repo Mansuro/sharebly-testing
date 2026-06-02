@@ -1,4 +1,29 @@
-verify/node_modules/
+# Dependencies
+**/node_modules/
+
+# Build artifacts
+**/.next/
+**/out/
+**/dist/
+*.tsbuildinfo
+
+# Env files (never commit secrets)
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Vercel
+**/.vercel/
+
+# Test artifacts
 verify/output/
-verify/.env
+verify/test-results/
+verify/playwright-report/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Backups
 routes.backup.*.json
