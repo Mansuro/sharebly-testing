@@ -1,6 +1,7 @@
 import {
   getResults,
   getScenarios,
+  getRoutes,
   countByVerdict,
   groupByArea,
   type IssueResult,
@@ -9,14 +10,20 @@ import {
 import { Header } from '@/components/Header';
 import { HealthSummary } from '@/components/HealthSummary';
 import { DiffCallout } from '@/components/DiffCallout';
+import { SolvedRegressionAlert } from '@/components/SolvedRegressionAlert';
 import { AreaSection } from '@/components/AreaSection';
 import { EmptyState } from '@/components/EmptyState';
 import { ScenariosSection } from '@/components/ScenariosSection';
+import { RoutesSection } from '@/components/RoutesSection';
 
 export const revalidate = 60;
 
 export default async function Page() {
-  const [data, scenarios] = await Promise.all([getResults(), getScenarios()]);
+  const [data, scenarios, routes] = await Promise.all([
+    getResults(),
+    getScenarios(),
+    getRoutes(),
+  ]);
 
   if (!data) {
     const configuredUrl =
@@ -39,6 +46,12 @@ export default async function Page() {
     .map((id) => byId.get(id))
     .filter((r): r is IssueResult => Boolean(r));
 
+  // Issues the user marked as resolved but that are failing again — these
+  // are real regressions and deserve a top-of-page alert.
+  const regressedSolved = data.results.filter(
+    (r) => r.issue_status === 'resolved' && r.verdict === 'fail',
+  );
+
   return (
     <main>
       <Header
@@ -50,9 +63,10 @@ export default async function Page() {
 
       <HealthSummary counts={counts} total={data.total_issues} />
 
-      {(newlyFixed.length > 0 || newlyBroken.length > 0) && (
+      {(newlyFixed.length > 0 || newlyBroken.length > 0 || regressedSolved.length > 0) && (
         <section className="border-b border-[var(--border)]">
           <div className="max-w-[1200px] mx-auto px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <SolvedRegressionAlert issues={regressedSolved} delay={300} />
             <DiffCallout kind="fixed"  issues={newlyFixed}  delay={320} />
             <DiffCallout kind="broken" issues={newlyBroken} delay={360} />
           </div>
@@ -61,6 +75,10 @@ export default async function Page() {
 
       {scenarios !== null && scenarios.results.length > 0 && (
         <ScenariosSection results={scenarios.results} />
+      )}
+
+      {routes !== null && routes.results.length > 0 && (
+        <RoutesSection routes={routes.results} />
       )}
 
       <section className="max-w-[1200px] mx-auto px-6 py-10">

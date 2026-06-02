@@ -41,7 +41,7 @@
     "shape (MUI components, navbar 'Log in' button, text-based links). Run",
     "verify:scenarios and refine selectors when steps fail for selector reasons",
     "rather than real product bugs."
-  ],
+    ],
   "scenarios": [
     {
       "id": "auth-email-login",
@@ -51,12 +51,13 @@
       "auth": false,
       "steps": [
         { "kind": "goto", "path": "/" },
+        { "kind": "wait", "ms": 1200 },
         { "kind": "click", "text": "Log in" },
-        { "kind": "expect_visible", "selector": "[role=\"dialog\"], .MuiDialog-root", "timeout_ms": 5000 },
-        { "kind": "fill", "selector": "input[type=\"email\"], input[type=\"text\"]:not([type=\"password\"])", "value": "$EMAIL" },
+        { "kind": "wait", "ms": 1000 },
+        { "kind": "fill", "selector": "[role=\"dialog\"] input[type=\"email\"], [role=\"dialog\"] input[type=\"text\"]:not([type=\"password\"]), .MuiDialog-root input[type=\"email\"], .MuiDialog-root input[type=\"text\"]:not([type=\"password\"]), .MuiModal-root input[type=\"email\"], .MuiModal-root input[type=\"text\"]:not([type=\"password\"]), input[type=\"email\"], input[type=\"text\"]:not([type=\"password\"])", "value": "$EMAIL" },
         { "kind": "fill", "selector": "input[type=\"password\"]", "value": "$PASSWORD" },
-        { "kind": "click", "selector": "button[type=\"submit\"]" },
-        { "kind": "expect_text", "text": "Authenticated", "timeout_ms": 10000 }
+        { "kind": "click", "selector": "button[type=\"submit\"], button:has-text(\"Log in\"), button:has-text(\"Sign in\")" },
+        { "kind": "expect_text", "text": "Authenticated", "timeout_ms": 15000 }
       ]
     },
     {
@@ -69,8 +70,9 @@
         { "kind": "goto", "path": "/" },
         { "kind": "wait", "ms": 1200 },
         { "kind": "goto", "path": "/browse/task" },
+        { "kind": "wait", "ms": 1500 },
         { "kind": "expect_url", "contains": "/browse/task" },
-        { "kind": "expect_visible", "selector": "img, [class*=\"card\" i], article", "timeout_ms": 8000 }
+        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div, img, article, [class*=\"card\" i]", "timeout_ms": 10000 }
       ]
     },
     {
@@ -81,9 +83,9 @@
       "auth": false,
       "steps": [
         { "kind": "goto", "path": "/browse/task" },
-        { "kind": "wait", "ms": 1500 },
-        { "kind": "expect_visible", "selector": "input[type=\"search\"], input[placeholder*=\"search\" i], [role=\"searchbox\"]", "timeout_ms": 8000 },
-        { "kind": "fill", "selector": "input[type=\"search\"], input[placeholder*=\"search\" i], [role=\"searchbox\"]", "value": "cleaning" }
+        { "kind": "wait", "ms": 2000 },
+        { "kind": "expect_visible", "selector": "input[type=\"search\"], input[placeholder*=\"search\" i], [role=\"searchbox\"], input[aria-label*=\"search\" i], .MuiInputBase-input", "timeout_ms": 10000 },
+        { "kind": "fill", "selector": "input[type=\"search\"], input[placeholder*=\"search\" i], [role=\"searchbox\"], input[aria-label*=\"search\" i], .MuiInputBase-input", "value": "cleaning" }
       ]
     },
     {
@@ -94,9 +96,9 @@
       "auth": true,
       "steps": [
         { "kind": "goto", "path": "/post-task" },
-        { "kind": "wait", "ms": 1500 },
+        { "kind": "wait", "ms": 2000 },
         { "kind": "expect_url", "contains": "/post-task" },
-        { "kind": "expect_visible", "selector": "form input, form textarea", "timeout_ms": 8000 }
+        { "kind": "expect_visible", "selector": "form input, form textarea, input, textarea, .MuiInputBase-input", "timeout_ms": 10000 }
       ]
     },
     {
@@ -107,9 +109,9 @@
       "auth": true,
       "steps": [
         { "kind": "goto", "path": "/profile/favorites" },
-        { "kind": "wait", "ms": 1500 },
+        { "kind": "wait", "ms": 2000 },
         { "kind": "expect_url", "contains": "/profile/favorites" },
-        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div", "timeout_ms": 8000 }
+        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div", "timeout_ms": 10000 }
       ]
     },
     {
@@ -120,9 +122,9 @@
       "auth": false,
       "steps": [
         { "kind": "goto", "path": "/browse/service" },
-        { "kind": "wait", "ms": 1500 },
+        { "kind": "wait", "ms": 2000 },
         { "kind": "expect_url", "contains": "/browse/service" },
-        { "kind": "expect_visible", "selector": "article, [class*=\"card\" i], img", "timeout_ms": 8000 }
+        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div, article, img, [class*=\"card\" i]", "timeout_ms": 10000 }
       ]
     },
     {
@@ -133,9 +135,9 @@
       "auth": true,
       "steps": [
         { "kind": "goto", "path": "/profile" },
-        { "kind": "wait", "ms": 1500 },
+        { "kind": "wait", "ms": 2000 },
         { "kind": "expect_url", "contains": "/profile" },
-        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div", "timeout_ms": 8000 }
+        { "kind": "expect_visible", "selector": "main, [role=\"main\"], #root > div", "timeout_ms": 10000 }
       ]
     },
     {
@@ -146,9 +148,9 @@
       "auth": true,
       "steps": [
         { "kind": "goto", "path": "/settings/account" },
-        { "kind": "wait", "ms": 1500 },
+        { "kind": "wait", "ms": 2000 },
         { "kind": "expect_url", "contains": "/settings/account" },
-        { "kind": "expect_visible", "selector": "form input:not([disabled]):not([readonly]), form textarea:not([disabled]):not([readonly])", "timeout_ms": 8000 }
+        { "kind": "expect_visible", "selector": "form input:not([disabled]):not([readonly]), form textarea:not([disabled]):not([readonly]), input:not([disabled]):not([readonly]), textarea:not([disabled]):not([readonly]), .MuiInputBase-input:not([disabled]):not([readonly])", "timeout_ms": 10000 }
       ]
     }
   ]

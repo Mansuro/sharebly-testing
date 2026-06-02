@@ -13,6 +13,16 @@
     "                this is a subjective UX issue that automation cannot judge.",
     "                Even rule=null issues are still loaded and run through the",
     "                generic checks (console errors, broken images, error text).",
+    "  status      — one of:",
+    "                  \"active\"   (default — the issue is still on the watchlist)",
+    "                  \"resolved\" (user fixed it; keep checking so a regression",
+    "                              is caught — the runner still loads the page",
+    "                              and runs all checks, and the dashboard surfaces",
+    "                              a REGRESSION alert if a resolved issue fails)",
+    "                  \"wontfix\"  (accepted as-is — the runner skips the page",
+    "                              load entirely and the verdict is \"skipped\"",
+    "                              with reason \"wontfix\". The dashboard hides",
+    "                              these from area lists.)",
     "",
     "When a rule is added, ALL generic checks still apply — the rule is an",
     "ADDITIONAL targeted assertion on top."
@@ -24,7 +34,8 @@
       "area": "Profile Management",
       "description": "No picture in the profile section even though a picture has been uploaded.",
       "auth": true,
-      "rule": "avatarImageLoaded"
+      "rule": "avatarImageLoaded",
+      "status": "active"
     },
     {
       "id": "profile-overload",
@@ -32,7 +43,8 @@
       "area": "Profile Management",
       "description": "Too many colors; text does not highlight key information; risk of information overload.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "settings-account-cannot-edit",
@@ -40,7 +52,8 @@
       "area": "Settings",
       "description": "Cannot be edited. Error message shown.",
       "auth": true,
-      "rule": "noErrorAlertVisible"
+      "rule": "noErrorAlertVisible",
+      "status": "active"
     },
     {
       "id": "settings-account-cannot-save",
@@ -48,7 +61,8 @@
       "area": "Settings",
       "description": "Cannot edit the information. Cannot save.",
       "auth": true,
-      "rule": "formFieldsEditable"
+      "rule": "formFieldsEditable",
+      "status": "active"
     },
     {
       "id": "settings-privacy-copy",
@@ -56,7 +70,8 @@
       "area": "Settings",
       "description": "Confusing connections wording.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "settings-security-wrong-info",
@@ -64,7 +79,8 @@
       "area": "Settings",
       "description": "Newly-created profile contains another user's information.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "home-zoom-distortion",
@@ -72,7 +88,8 @@
       "area": "Home",
       "description": "At 100% zoom, the web design is distorted and does not display properly.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "home-too-many-header-links",
@@ -80,7 +97,8 @@
       "area": "Home",
       "description": "Too many links in the header make users feel overwhelmed.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "home-slicer-broken",
@@ -88,7 +106,8 @@
       "area": "Home",
       "description": "The slicer isn't working.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "home-why-choose-us-broken",
@@ -96,7 +115,8 @@
       "area": "Home",
       "description": "'Why choose us' section not working.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "home-marketplace-header",
@@ -104,7 +124,8 @@
       "area": "Home",
       "description": "Marketplace link can be removed from the header; users find it in profile.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "home-only-exchanges",
@@ -112,7 +133,8 @@
       "area": "Home",
       "description": "Only exchanges shown — tasks and other sections missing.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "home-map-hover-not-clickable",
@@ -120,7 +142,8 @@
       "area": "Home",
       "description": "Mouseover indicators on maps are not clickable; only navigation button is active.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "home-image-upload-broken",
@@ -128,7 +151,8 @@
       "area": "Home",
       "description": "Unable to upload an image; uploads are generally not possible.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "browse-task-missing-images",
@@ -136,7 +160,8 @@
       "area": "Task Management",
       "description": "Avatars, preview images, cover images, card images, listing images and thumbnails missing across galleries and upload preview.",
       "auth": false,
-      "rule": "imagesActuallyLoaded"
+      "rule": "imagesActuallyLoaded",
+      "status": "active"
     },
     {
       "id": "browse-task-filters-irrelevant",
@@ -144,7 +169,8 @@
       "area": "Task Management",
       "description": "Filters do not include relevant options for narrowing down postings.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "category-calendar-broken",
@@ -152,7 +178,8 @@
       "area": "Category",
       "description": "Calendar isn't displaying entries; no 'X' button to close the calendar.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "task-details-undefined",
@@ -160,7 +187,8 @@
       "area": "Task Management",
       "description": "URL contains 'undefined'; nothing is displayed.",
       "auth": false,
-      "rule": "noUndefinedOnPage"
+      "rule": "noUndefinedOnPage",
+      "status": "active"
     },
     {
       "id": "task-details-comments-locked",
@@ -168,7 +196,8 @@
       "area": "Task Management",
       "description": "Comments may not be enabled until the order has been completed.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "task-details-empty-but-calendar-shows",
@@ -176,7 +205,8 @@
       "area": "Task Management",
       "description": "No items available, but items are displayed in the calendar.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "task-details-calendar-no-close",
@@ -184,7 +214,8 @@
       "area": "Task Management",
       "description": "Calendar has no 'X' to close; personal calendar needs name and distinct style.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "post-task-poor-design",
@@ -192,7 +223,8 @@
       "area": "Task Management",
       "description": "Post-task page has unacceptably poor presentation; design is distorted.",
       "auth": true,
-      "rule": "noHorizontalOverflow"
+      "rule": "noHorizontalOverflow",
+      "status": "active"
     },
     {
       "id": "post-task-form-overlap",
@@ -200,7 +232,8 @@
       "area": "Task Management",
       "description": "Forms are not designed to cover or overlap the page.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "favorites-unclear-heading",
@@ -208,7 +241,8 @@
       "area": "Profile Management",
       "description": "'Results found' is not a clear message; needs clearer headings.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "suggestions-needs-search",
@@ -216,7 +250,8 @@
       "area": "Suggestions",
       "description": "There must be a search function and an advanced-search option on this page.",
       "auth": false,
-      "rule": "searchInputPresent"
+      "rule": "searchInputPresent",
+      "status": "active"
     },
     {
       "id": "suggestions-too-much-text",
@@ -224,7 +259,17 @@
       "area": "Suggestions",
       "description": "Lists should not contain continuous text — only the most important info.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
+    },
+    {
+      "id": "suggestions-detail-vs-list",
+      "path": "/suggestions",
+      "area": "Suggestions",
+      "description": "Search results should only include the most important information; additional text can live on the detail pages.",
+      "auth": false,
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "dashboard-uniform-cards",
@@ -232,7 +277,8 @@
       "area": "Profile Management",
       "description": "Dashboard cards are too uniform; no visual hierarchy among key metrics.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "dashboard-sidebar-dominant",
@@ -240,7 +286,8 @@
       "area": "Profile Management",
       "description": "Open profile sidebar dominates; floating action buttons cluster creates cognitive overload.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "dashboard-cannot-publish",
@@ -248,7 +295,26 @@
       "area": "Profile Management",
       "description": "Content cannot be published from the dashboard; links and buttons are inactive.",
       "auth": true,
-      "rule": "dashboardHasActionableButtons"
+      "rule": "dashboardHasActionableButtons",
+      "status": "active"
+    },
+    {
+      "id": "dashboard-content-not-publishable",
+      "path": "/profile/dashboard",
+      "area": "Profile Management",
+      "description": "Content cannot be published.",
+      "auth": true,
+      "rule": null,
+      "status": "active"
+    },
+    {
+      "id": "dashboard-no-user-guidance",
+      "path": "/profile/dashboard",
+      "area": "Profile Management",
+      "description": "Lack of clear user guidance; users need to understand from this page that they can post various things. The UX here is terrible.",
+      "auth": true,
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "dashboard-double-calendar",
@@ -256,7 +322,8 @@
       "area": "Profile Management",
       "description": "Double pop-up calendar and Published buttons; confusing UX.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "workspace-unable-to-load",
@@ -264,7 +331,8 @@
       "area": "Profile Management",
       "description": "'Unable to load your posted orders' error shows alongside empty state — contradictory messaging.",
       "auth": true,
-      "rule": "noErrorAlertVisible"
+      "rule": "noErrorAlertVisible",
+      "status": "active"
     },
     {
       "id": "workspace-confusing",
@@ -272,7 +340,8 @@
       "area": "Profile Management",
       "description": "Absolutely confusing; very poor; users dropping off here.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "workspace-error-on-empty",
@@ -280,7 +349,8 @@
       "area": "Profile Management",
       "description": "Error messages for non-existent content disrupt the UX.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "supporter-dashboard-no-feedback",
@@ -288,7 +358,8 @@
       "area": "Profile Management",
       "description": "After confirmation, user does not see what happened — no redirect or info.",
       "auth": true,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "search-breadcrumb-broken",
@@ -296,7 +367,8 @@
       "area": "Search",
       "description": "Selecting 'Search' in the breadcrumb does not navigate; long load time.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     },
     {
       "id": "search-results-no-empty-state",
@@ -304,7 +376,8 @@
       "area": "Search",
       "description": "If no matching offers, should display 'No matching offers' with alternatives; loading is slow.",
       "auth": false,
-      "rule": null
+      "rule": null,
+      "status": "active"
     }
   ]
 }

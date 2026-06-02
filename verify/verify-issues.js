@@ -354,6 +354,32 @@ async function loadPage(context, path) {
 // ─── Per-issue evaluation ───────────────────────────────────────────────
 
 async function evaluateIssue(context, issue, isAuthenticated) {
+  // Treat any value other than "resolved" or "wontfix" as "active" so legacy
+  // entries without a status field still run.
+  const status =
+    issue.status === 'resolved' || issue.status === 'wontfix'
+      ? issue.status
+      : 'active';
+
+  // Wontfix issues are accepted as-is. Don't even load the page — return a
+  // skipped verdict so the dashboard can quietly account for them without
+  // burning a Playwright tab on a page nobody plans to fix.
+  if (status === 'wontfix') {
+    return {
+      id: issue.id,
+      path: issue.path,
+      area: issue.area,
+      description: issue.description,
+      rule: issue.rule,
+      issue_status: status,
+      verdict: 'skipped',
+      reason: 'wontfix',
+      generic_checks: [],
+      rule_check: null,
+      page_data: null,
+    };
+  }
+
   if (issue.auth && !isAuthenticated) {
     return {
       id: issue.id,
@@ -361,6 +387,7 @@ async function evaluateIssue(context, issue, isAuthenticated) {
       area: issue.area,
       description: issue.description,
       rule: issue.rule,
+      issue_status: status,
       verdict: 'skipped',
       reason: 'auth required but no auth state available',
       generic_checks: [],
@@ -430,6 +457,7 @@ async function evaluateIssue(context, issue, isAuthenticated) {
     area: issue.area,
     description: issue.description,
     rule: issue.rule,
+    issue_status: status,
     verdict,
     generic_checks: generic,
     rule_check: ruleCheck,

@@ -25,6 +25,8 @@ export type PageData = {
   nav_error: string | null;
 };
 
+export type IssueStatus = 'active' | 'resolved' | 'wontfix';
+
 export type IssueResult = {
   id: string;
   path: string;
@@ -36,6 +38,7 @@ export type IssueResult = {
   generic_checks: GenericCheck[];
   rule_check: RuleCheck | null;
   page_data: PageData | null;
+  issue_status: IssueStatus;
 };
 
 export type IssueResultsFile = {
@@ -148,6 +151,97 @@ export function groupScenariosByArea(
     map.get(r.area)!.push(r);
   }
   return map;
+}
+
+// ─── Routes (merged http + browser verdict per route) ──────────────────
+//
+// Mirrors the shape produced by verify/report.js (routes.status.json),
+// then published to the `data` branch. Each record is the merged HTTP +
+// browser verdict for a single route the verifier checked.
+//
+// Verdict values come straight from report.js:
+//   pass | not-found | variant-works | auth-redirect |
+//   blocked | unverifiable | error | unknown
+//
+// All fields beyond id/path/verdict are optional — the dashboard only
+// renders what is present and degrades gracefully when fields drift.
+
+export type RouteVerdict =
+  | 'pass'
+  | 'not-found'
+  | 'variant-works'
+  | 'auth-redirect'
+  | 'blocked'
+  | 'unverifiable'
+  | 'error'
+  | 'unknown';
+
+export type RouteRecord = {
+  id: string;
+  path: string;
+  verdict: RouteVerdict | string;
+  component?: string;
+  module?: string;
+  auth?: boolean;
+  priority?: string;
+  inferred?: boolean;
+  /** Canonical path (typically equal to `path`). */
+  confirmed_path?: string | null;
+  /** A working alternate path discovered by the verifier (for `variant-works`). */
+  suggested_path?: string | null;
+  /** Path the browser actually navigated to. */
+  tested_path?: string | null;
+  /** Final URL/path the browser landed on (after any redirects). */
+  final_path?: string | null;
+  redirected?: boolean;
+  /** HTTP status from the HTTP probe, when available. */
+  http_status?: number | null;
+  notes?: string[];
+};
+
+export type RoutesFile = {
+  base_url: string;
+  checked_at: string;
+  results: RouteRecord[];
+};
+
+const ROUTES_DATA_URL =
+  process.env.ROUTES_DATA_URL ||
+  'https://raw.githubusercontent.com/REPLACE_ME/REPLACE_ME/data/routes.status.json';
+
+/**
+ * Fetch the latest per-route verdicts. Returns null if unreachable so the
+ * dashboard can omit the Route Health section instead of crashing.
+ *
+ * The upstream payload may use either `results` or the legacy `verdicts`
+ * key (and `generated_at` instead of `checked_at`); we normalise both.
+ */
+export async function getRoutes(): Promise<RoutesFile | null> {
+  try {
+    const res = await fetch(ROUTES_DATA_URL, { next: { revalidate: 60 } });
+    if (!res.ok) return null;
+    const raw = (await res.json()) as Partial<RoutesFile> & {
+      verdicts?: RouteRecord[];
+      generated_at?: string;
+    };
+    const results = raw.results ?? raw.verdicts ?? [];
+    const checked_at = raw.checked_at ?? raw.generated_at ?? '';
+    const base_url = raw.base_url ?? '';
+    return { base_url, checked_at, results };
+  } catch {
+    return null;
+  }
+}
+
+export function countRouteVerdicts(
+  records: RouteRecord[],
+): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const r of records) {
+    const key = String(r.verdict);
+    counts[key] = (counts[key] || 0) + 1;
+  }
+  return counts;
 }
 
 export function formatRelativeTime(iso: string): string {

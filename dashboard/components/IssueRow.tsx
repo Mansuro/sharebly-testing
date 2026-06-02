@@ -1,9 +1,43 @@
 'use client';
 
 import { useState } from 'react';
-import type { IssueResult } from '@/lib/data';
+import type { IssueResult, IssueStatus } from '@/lib/data';
 import { VerdictPill } from './VerdictPill';
 import { Path } from './Path';
+
+function StatusBadge({ status }: { status: IssueStatus }) {
+  if (status === 'resolved') {
+    return (
+      <span
+        className="mono text-[10px] tabular font-semibold px-1.5 py-[1px] border"
+        style={{
+          color: 'var(--pass)',
+          borderColor: 'rgba(74, 222, 128, 0.35)',
+          background: 'rgba(74, 222, 128, 0.08)',
+        }}
+        title="Marked as resolved — runner still checks for regressions"
+      >
+        ✓ SOLVED
+      </span>
+    );
+  }
+  if (status === 'wontfix') {
+    return (
+      <span
+        className="mono text-[10px] tabular font-semibold px-1.5 py-[1px] border"
+        style={{
+          color: 'var(--neutral)',
+          borderColor: 'var(--border)',
+          background: 'transparent',
+        }}
+        title="Accepted as-is — runner skips this page"
+      >
+        · WONTFIX
+      </span>
+    );
+  }
+  return null;
+}
 
 export function IssueRow({ issue }: { issue: IssueResult }) {
   const [open, setOpen] = useState(false);
@@ -35,6 +69,7 @@ export function IssueRow({ issue }: { issue: IssueResult }) {
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline gap-3 flex-wrap">
             <span className="mono text-[12px] font-medium text-[var(--text)]">{issue.id}</span>
+            <StatusBadge status={issue.issue_status} />
             <Path path={issue.path} className="text-[var(--text-dim)] truncate" />
           </div>
           <div className="text-[13px] text-[var(--text-dim)] mt-1 leading-snug">{issue.description}</div>
