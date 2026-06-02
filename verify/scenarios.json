@@ -98,7 +98,7 @@
         { "kind": "goto", "path": "/post-task" },
         { "kind": "wait", "ms": 2000 },
         { "kind": "expect_url", "contains": "/post-task" },
-        { "kind": "expect_visible", "selector": "input:not([type=\"hidden\"]), textarea", "timeout_ms": 10000 }
+        { "kind": "expect_visible", "selector": "input:visible, textarea:visible", "timeout_ms": 10000 }
       ]
     },
     {
