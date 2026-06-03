@@ -1,7 +1,7 @@
 {
   "$schema": "./routes.schema.json",
   "version": "1.0.0",
-  "updated_at": "2026-05-31",
+  "updated_at": "2026-06-03",
   "routes": [
     {
       "id": "home",
@@ -1094,7 +1094,7 @@
     },
     {
       "id": "service-details",
-      "path": "/service/:id",
+      "path": "/browse/task/details/task-workspace/:id",
       "component": "ServiceDetails",
       "module": "marketplace",
       "auth": false,
@@ -1105,8 +1105,8 @@
         "discovery"
       ],
       "tags": [],
-      "inferred": true,
-      "notes": "Path inferred — confirm with developer. Verified missing on 2026-05-28 — no path variant resolved. Path /browse/service/details/ not present in bundle; needs manual mapping on 2026-05-31."
+      "inferred": false,
+      "notes": "Verified missing on 2026-05-28 — no path variant resolved. Path /browse/service/details/ not present in bundle; needs manual mapping on 2026-05-31. Path corrected via bundle extraction on 2026-06-03."
     },
     {
       "id": "task-details",
