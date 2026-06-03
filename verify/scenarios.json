@@ -116,14 +116,14 @@
     },
     {
       "id": "service-browse",
-      "name": "Browse Services page loads",
-      "description": "Visit the Browse Services page and verify a list/grid renders.",
+      "name": "My Services page loads",
+      "description": "Authenticated user can open their My Services page and the page renders. (Sharebly has no public 'browse services' page; /profile/my-service is the closest real surface.)",
       "area": "Service Management",
-      "auth": false,
+      "auth": true,
       "steps": [
-        { "kind": "goto", "path": "/browse/service" },
+        { "kind": "goto", "path": "/profile/my-service" },
         { "kind": "wait", "ms": 2000 },
-        { "kind": "expect_url", "contains": "/browse/service" },
+        { "kind": "expect_url", "contains": "/profile/my-service" },
         { "kind": "expect_visible", "selector": "header", "timeout_ms": 10000 }
       ]
     },

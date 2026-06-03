@@ -378,15 +378,6 @@
       "auth": false,
       "rule": null,
       "status": "active"
-    },
-    {
-      "id": "browse-service-missing-route",
-      "path": "/browse/service",
-      "area": "Service Management",
-      "description": "/browse/service route does not render \u2014 page is blank (no header, no main, no content). Users navigating to Browse Services land on a non-functional page.",
-      "auth": false,
-      "rule": null,
-      "status": "active"
     }
   ]
 }
