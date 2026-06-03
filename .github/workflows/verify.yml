@@ -38,6 +38,38 @@ jobs:
         working-directory: verify
         run: npx playwright install --with-deps chromium
 
+      # ── Auto-sync routes.json against the live production bundle ──
+      # extract-routes.js pulls the canonical path list from the bundle and
+      # writes routes.diff.json. apply-bundle.js --apply applies that diff
+      # back into routes.json. If the resulting working tree differs, we
+      # commit the update to main with [skip ci] so this same workflow
+      # doesn't re-trigger itself in a loop. All subsequent verify steps
+      # then operate against the freshly synced inventory.
+      - name: Sync routes from production bundle
+        continue-on-error: true
+        working-directory: verify
+        env:
+          SHAREBLY_URL: ${{ vars.SHAREBLY_URL || 'http://78.46.183.126:5173' }}
+        run: |
+          npm run extract
+          npm run apply-bundle:force
+
+      - name: Commit routes.json drift if any
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -e
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if ! git diff --quiet -- routes.json; then
+            echo "routes.json drifted — committing"
+            git add routes.json
+            git commit -m "routes: sync from production bundle [skip ci]"
+            git push origin HEAD:main
+          else
+            echo "routes.json in sync — nothing to commit"
+          fi
+
       - name: Run verify:http
         continue-on-error: true
         working-directory: verify
