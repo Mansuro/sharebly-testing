@@ -244,47 +244,6 @@ export function countRouteVerdicts(
   return counts;
 }
 
-// ─── Link sources (verify-link-sources.js output) ──────────────────────
-//
-// Mirrors the shape produced by verify/find-link-sources.js. Records
-// every internal-link target the crawler observed across the pages it
-// loaded, along with where each was found. Powers the "Linked from"
-// hint on failing routes so users can locate the broken link.
-
-export type LinkSource = {
-  source_path: string;
-  element_kind: 'link' | 'nav' | 'button' | 'form' | string;
-  label: string;
-  selector: string;
-};
-
-export type LinkSourcesFile = {
-  base_url: string;
-  checked_at: string;
-  pages_crawled?: number;
-  unique_targets?: number;
-  sources_by_target: Record<string, LinkSource[]>;
-};
-
-const LINK_SOURCES_DATA_URL =
-  process.env.LINK_SOURCES_DATA_URL ||
-  'https://raw.githubusercontent.com/REPLACE_ME/REPLACE_ME/data/link-sources.json';
-
-/**
- * Fetch the latest link-source crawl output. Returns null if unreachable
- * so the dashboard can simply omit the "Linked from" annotations rather
- * than crash.
- */
-export async function getLinkSources(): Promise<LinkSourcesFile | null> {
-  try {
-    const res = await fetch(LINK_SOURCES_DATA_URL, { next: { revalidate: 60 } });
-    if (!res.ok) return null;
-    return (await res.json()) as LinkSourcesFile;
-  } catch {
-    return null;
-  }
-}
-
 export function formatRelativeTime(iso: string): string {
   const then = new Date(iso).getTime();
   const now = Date.now();

@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import type { RouteRecord, LinkSource } from '@/lib/data';
+import type { RouteRecord } from '@/lib/data';
 import { Path } from './Path';
 
 type Filter = 'all' | 'failing' | 'redirected' | 'ok';
@@ -49,13 +49,7 @@ function statusInfo(r: RouteRecord): { label: string; color: string } {
   return { label: '???', color: 'var(--neutral)' };
 }
 
-export function RoutesTable({
-  routes,
-  sourcesByTarget,
-}: {
-  routes: RouteRecord[];
-  sourcesByTarget?: Record<string, LinkSource[]>;
-}) {
+export function RoutesTable({ routes }: { routes: RouteRecord[] }) {
   const [filter, setFilter] = useState<Filter>('all');
   const [query, setQuery] = useState('');
 
@@ -150,37 +144,27 @@ export function RoutesTable({
             No routes match {query ? `"${query}"` : 'this filter'}.
           </div>
         ) : (
-          visible.map((r) => (
-            <RouteRow
-              key={`${r.id}-${r.path}`}
-              route={r}
-              sources={sourcesByTarget?.[r.path]}
-            />
-          ))
+          visible.map((r) => <RouteRow key={`${r.id}-${r.path}`} route={r} />)
         )}
       </div>
     </>
   );
 }
 
-function RouteRow({
-  route,
-  sources,
-}: {
-  route: RouteRecord;
-  sources?: LinkSource[];
-}) {
+function RouteRow({ route }: { route: RouteRecord }) {
   const s = statusInfo(route);
   const finalPath =
     route.suggested_path ||
     (route.final_path && route.final_path !== route.path ? route.final_path : null);
 
-  // Only annotate when the row is in the "failing" bucket and we have
-  // discovered sources for this path. Show up to 3 to keep the row compact.
-  const showSources =
-    bucket(route) === 'failing' && Array.isArray(sources) && sources.length > 0;
-  const shownSources = showSources ? sources!.slice(0, 3) : [];
-  const extraCount = showSources ? Math.max(0, sources!.length - shownSources.length) : 0;
+  // Provenance row — only shown for failing routes. Answers "is this a real
+  // route?" using fields extract-routes.js wrote to routes.json: the React
+  // component name (when present, the developer wired this), module owner,
+  // whether the path was pattern-inferred vs. extracted verbatim, and the
+  // triage notes capturing why we believe it doesn't render.
+  const showProvenance =
+    bucket(route) === 'failing' &&
+    (route.component || route.module || route.notes || route.inferred);
 
   return (
     <div className="border-b border-[var(--border)] last:border-b-0 row-hover px-4 py-2.5">
@@ -214,42 +198,51 @@ function RouteRow({
         </span>
       </div>
 
-      {showSources && (
-        <div className="mt-1.5 pl-[60px] flex flex-col gap-0.5">
-          <div className="eyebrow text-[var(--text-faint)]">Linked from</div>
-          {shownSources.map((src, i) => (
-            <LinkedFrom key={i} source={src} />
-          ))}
-          {extraCount > 0 && (
-            <div className="mono text-[10px] text-[var(--text-faint)] tracking-wider uppercase tabular">
-              + {extraCount} more
-            </div>
-          )}
-        </div>
-      )}
+      {showProvenance && <Provenance route={route} />}
     </div>
   );
 }
 
-function LinkedFrom({ source }: { source: LinkSource }) {
-  const kind = (source.element_kind || 'link').toUpperCase();
-  const label = source.label?.trim();
-
+function Provenance({ route }: { route: RouteRecord }) {
+  const notes = Array.isArray(route.notes)
+    ? route.notes.join(' · ')
+    : (route.notes || '');
   return (
-    <div className="flex items-baseline gap-2 flex-wrap min-w-0">
-      <span
-        className="mono text-[9px] tracking-wider tabular text-[var(--text-faint)] border border-[var(--border)] px-1 py-[1px] shrink-0"
-        title={source.selector || undefined}
-      >
-        {kind}
-      </span>
-      <div className="min-w-0 max-w-full truncate">
-        <Path path={source.source_path} className="text-[var(--text-dim)]" />
-      </div>
-      {label && (
-        <span className="mono text-[11px] text-[var(--text-dim)] truncate min-w-0">
-          “{label}”
+    <div className="mt-1.5 pl-[60px] flex flex-col gap-1">
+      <div className="flex items-baseline gap-3 flex-wrap text-[11px]">
+        {route.component && (
+          <span className="flex items-baseline gap-1">
+            <span className="eyebrow">Component</span>
+            <span className="mono text-[var(--text)]">{route.component}</span>
+          </span>
+        )}
+        {route.module && (
+          <span className="flex items-baseline gap-1">
+            <span className="eyebrow">Module</span>
+            <span className="mono text-[var(--text-dim)]">{route.module}</span>
+          </span>
+        )}
+        <span className="flex items-baseline gap-1">
+          <span className="eyebrow">Path</span>
+          <span
+            className="mono"
+            style={{
+              color: route.inferred ? 'var(--warn)' : 'var(--text-dim)',
+            }}
+            title={
+              route.inferred
+                ? 'Path was inferred from naming convention — may not match the developer-registered route.'
+                : 'Path was extracted verbatim from the production bundle.'
+            }
+          >
+            {route.inferred ? 'inferred' : 'from bundle'}
+          </span>
         </span>
+      </div>
+      {notes && (
+        <div className="text-[11.5px] text-[var(--text-dim)] leading-snug">
+          {notes}
+        </div>
       )}
     </div>
   );

@@ -1,4 +1,4 @@
-import { getRoutes, getResults, getLinkSources } from '@/lib/data';
+import { getRoutes, getResults } from '@/lib/data';
 import { Header } from '@/components/Header';
 import { PageTabs } from '@/components/PageTabs';
 import { RoutesSection } from '@/components/RoutesSection';
@@ -7,11 +7,7 @@ export const revalidate = 60;
 
 export default async function RoutesPage() {
   // Issues data drives the Header meta; routes data drives the section.
-  const [routes, issues, linkSources] = await Promise.all([
-    getRoutes(),
-    getResults(),
-    getLinkSources(),
-  ]);
+  const [routes, issues] = await Promise.all([getRoutes(), getResults()]);
 
   // Synthesize Header props. If issue data isn't available yet, fall back
   // to whatever metadata routes carries so the page still renders cleanly.
@@ -43,10 +39,7 @@ export default async function RoutesPage() {
       />
 
       {routes && routes.results.length > 0 ? (
-        <RoutesSection
-          routes={routes.results}
-          sourcesByTarget={linkSources?.sources_by_target}
-        />
+        <RoutesSection routes={routes.results} />
       ) : (
         <NoRoutesYet />
       )}

@@ -79,13 +79,6 @@ jobs:
         working-directory: verify
         run: npm run report
 
-      - name: Run verify:link-sources
-        continue-on-error: true
-        working-directory: verify
-        env:
-          SHAREBLY_URL: ${{ vars.SHAREBLY_URL || 'http://78.46.183.126:5173' }}
-        run: npm run verify:link-sources
-
       - name: Publish results to data branch
         if: always()
         shell: bash
@@ -122,8 +115,7 @@ jobs:
             scenarios-report.md \
             http-results.json \
             browser-results.json \
-            routes.status.json \
-            link-sources.json; do
+            routes.status.json; do
             if [ -f "$OUTPUT_DIR/$f" ]; then
               cp "$OUTPUT_DIR/$f" "$WORKTREE/$f"
               echo "copied $f"
