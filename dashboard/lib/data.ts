@@ -27,6 +27,11 @@ export type PageData = {
 
 export type IssueStatus = 'active' | 'resolved' | 'wontfix';
 
+export type IssueSource = {
+  sheet_url: string;
+  sheet_section: string;
+};
+
 export type IssueResult = {
   id: string;
   path: string;
@@ -39,6 +44,7 @@ export type IssueResult = {
   rule_check: RuleCheck | null;
   page_data: PageData | null;
   issue_status: IssueStatus;
+  source: IssueSource | null;
 };
 
 export type IssueResultsFile = {

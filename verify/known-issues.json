@@ -13,6 +13,11 @@
     "                this is a subjective UX issue that automation cannot judge.",
     "                Even rule=null issues are still loaded and run through the",
     "                generic checks (console errors, broken images, error text).",
+    "  source      \u2014 object describing where the issue came from:",
+    "                  sheet_url     (deep link to the Google Sheet)",
+    "                  sheet_section (friendly section/table label)",
+    "                Future issues from other sheets/tables should set",
+    "                their own values here.",
     "  status      \u2014 one of:",
     "                  \"active\"   (default \u2014 the issue is still on the watchlist)",
     "                  \"resolved\" (user fixed it; keep checking so a regression",
@@ -35,7 +40,11 @@
       "description": "No picture in the profile section even though a picture has been uploaded.",
       "auth": true,
       "rule": "avatarImageLoaded",
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "profile-overload",
@@ -44,7 +53,11 @@
       "description": "Too many colors; text does not highlight key information; risk of information overload.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "settings-account-cannot-edit",
@@ -53,7 +66,11 @@
       "description": "Cannot be edited. Error message shown.",
       "auth": true,
       "rule": "noErrorAlertVisible",
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "settings-account-cannot-save",
@@ -62,7 +79,11 @@
       "description": "Cannot edit the information. Cannot save.",
       "auth": true,
       "rule": "formFieldsEditable",
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "settings-privacy-copy",
@@ -71,7 +92,11 @@
       "description": "Confusing connections wording.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "settings-security-wrong-info",
@@ -80,7 +105,11 @@
       "description": "Newly-created profile contains another user's information.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "home-zoom-distortion",
@@ -89,7 +118,11 @@
       "description": "At 100% zoom, the web design is distorted and does not display properly.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "home-too-many-header-links",
@@ -98,7 +131,11 @@
       "description": "Too many links in the header make users feel overwhelmed.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "home-slicer-broken",
@@ -107,7 +144,11 @@
       "description": "The slicer isn't working.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "home-why-choose-us-broken",
@@ -116,7 +157,11 @@
       "description": "'Why choose us' section not working.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "home-marketplace-header",
@@ -125,7 +170,11 @@
       "description": "Marketplace link can be removed from the header; users find it in profile.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "home-only-exchanges",
@@ -134,7 +183,11 @@
       "description": "Only exchanges shown \u2014 tasks and other sections missing.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "home-map-hover-not-clickable",
@@ -143,7 +196,11 @@
       "description": "Mouseover indicators on maps are not clickable; only navigation button is active.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "home-image-upload-broken",
@@ -152,7 +209,11 @@
       "description": "Unable to upload an image; uploads are generally not possible.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "browse-task-missing-images",
@@ -161,7 +222,11 @@
       "description": "Avatars, preview images, cover images, card images, listing images and thumbnails missing across galleries and upload preview.",
       "auth": false,
       "rule": "imagesActuallyLoaded",
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "browse-task-filters-irrelevant",
@@ -170,7 +235,11 @@
       "description": "Filters do not include relevant options for narrowing down postings.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "category-calendar-broken",
@@ -179,7 +248,11 @@
       "description": "Calendar isn't displaying entries; no 'X' button to close the calendar.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "task-details-undefined",
@@ -188,7 +261,11 @@
       "description": "URL contains 'undefined'; nothing is displayed.",
       "auth": false,
       "rule": "noUndefinedOnPage",
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "task-details-comments-locked",
@@ -197,7 +274,11 @@
       "description": "Comments may not be enabled until the order has been completed.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "task-details-empty-but-calendar-shows",
@@ -206,7 +287,11 @@
       "description": "No items available, but items are displayed in the calendar.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "task-details-calendar-no-close",
@@ -215,7 +300,11 @@
       "description": "Calendar has no 'X' to close; personal calendar needs name and distinct style.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "post-task-poor-design",
@@ -224,7 +313,11 @@
       "description": "Post-task page has unacceptably poor presentation; design is distorted.",
       "auth": true,
       "rule": "noHorizontalOverflow",
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "post-task-form-overlap",
@@ -233,7 +326,11 @@
       "description": "Forms are not designed to cover or overlap the page.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "favorites-unclear-heading",
@@ -242,7 +339,11 @@
       "description": "'Results found' is not a clear message; needs clearer headings.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "suggestions-needs-search",
@@ -251,7 +352,11 @@
       "description": "There must be a search function and an advanced-search option on this page.",
       "auth": false,
       "rule": "searchInputPresent",
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "suggestions-too-much-text",
@@ -260,7 +365,11 @@
       "description": "Lists should not contain continuous text \u2014 only the most important info.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "suggestions-detail-vs-list",
@@ -269,7 +378,11 @@
       "description": "Search results should only include the most important information; additional text can live on the detail pages.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "dashboard-uniform-cards",
@@ -278,7 +391,11 @@
       "description": "Dashboard cards are too uniform; no visual hierarchy among key metrics.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "dashboard-sidebar-dominant",
@@ -287,7 +404,11 @@
       "description": "Open profile sidebar dominates; floating action buttons cluster creates cognitive overload.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "dashboard-cannot-publish",
@@ -296,7 +417,11 @@
       "description": "Content cannot be published from the dashboard; links and buttons are inactive.",
       "auth": true,
       "rule": "dashboardHasActionableButtons",
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "dashboard-content-not-publishable",
@@ -305,7 +430,11 @@
       "description": "Content cannot be published.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "dashboard-no-user-guidance",
@@ -314,7 +443,11 @@
       "description": "Lack of clear user guidance; users need to understand from this page that they can post various things. The UX here is terrible.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "dashboard-double-calendar",
@@ -323,7 +456,11 @@
       "description": "Double pop-up calendar and Published buttons; confusing UX.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "workspace-unable-to-load",
@@ -332,7 +469,11 @@
       "description": "'Unable to load your posted orders' error shows alongside empty state \u2014 contradictory messaging.",
       "auth": true,
       "rule": "noErrorAlertVisible",
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "workspace-confusing",
@@ -341,7 +482,11 @@
       "description": "Absolutely confusing; very poor; users dropping off here.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "workspace-error-on-empty",
@@ -350,7 +495,11 @@
       "description": "Error messages for non-existent content disrupt the UX.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "supporter-dashboard-no-feedback",
@@ -359,7 +508,11 @@
       "description": "After confirmation, user does not see what happened \u2014 no redirect or info.",
       "auth": true,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "search-breadcrumb-broken",
@@ -368,7 +521,11 @@
       "description": "Selecting 'Search' in the breadcrumb does not navigate; long load time.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     },
     {
       "id": "search-results-no-empty-state",
@@ -377,7 +534,11 @@
       "description": "If no matching offers, should display 'No matching offers' with alternatives; loading is slow.",
       "auth": false,
       "rule": null,
-      "status": "active"
+      "status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      }
     }
   ]
 }

@@ -73,6 +73,21 @@ export function IssueRow({ issue }: { issue: IssueResult }) {
             <Path path={issue.path} className="text-[var(--text-dim)] truncate" />
           </div>
           <div className="text-[13px] text-[var(--text-dim)] mt-1 leading-snug">{issue.description}</div>
+          {issue.source && (
+            <div className="text-[10.5px] text-[var(--text-faint)] mono mt-1 flex items-baseline gap-1.5 flex-wrap">
+              <span className="tracking-wider uppercase">From</span>
+              <a
+                href={issue.source.sheet_url}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-[var(--text-dim)] hover:text-[var(--accent)] underline decoration-dotted underline-offset-[3px] transition-colors"
+              >
+                {issue.source.sheet_section}
+                <span className="ml-1">↗</span>
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Chevron / details indicator */}
