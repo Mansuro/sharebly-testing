@@ -1,0 +1,1267 @@
+{
+  "base_url": "http://78.46.183.126:5173",
+  "checked_at": "2026-08-30T11:32:49.979Z",
+  "total_issues": 39,
+  "authenticated": false,
+  "results": [
+    {
+      "id": "profile-avatar-missing",
+      "path": "/profile",
+      "area": "Profile Management",
+      "description": "No picture in the profile section even though a picture has been uploaded.",
+      "rule": "avatarImageLoaded",
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "profile-overload",
+      "path": "/profile",
+      "area": "Profile Management",
+      "description": "Too many colors; text does not highlight key information; risk of information overload.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "settings-account-cannot-edit",
+      "path": "/settings/account",
+      "area": "Settings",
+      "description": "Cannot be edited. Error message shown.",
+      "rule": "noErrorAlertVisible",
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "settings-account-cannot-save",
+      "path": "/settings/account",
+      "area": "Settings",
+      "description": "Cannot edit the information. Cannot save.",
+      "rule": "formFieldsEditable",
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "settings-privacy-copy",
+      "path": "/settings/privacy",
+      "area": "Settings",
+      "description": "Confusing connections wording.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "settings-security-wrong-info",
+      "path": "/settings/security",
+      "area": "Settings",
+      "description": "Newly-created profile contains another user's information.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "home-zoom-distortion",
+      "path": "/",
+      "area": "Home",
+      "description": "At 100% zoom, the web design is distorted and does not display properly.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/"
+      }
+    },
+    {
+      "id": "home-too-many-header-links",
+      "path": "/",
+      "area": "Home",
+      "description": "Too many links in the header make users feel overwhelmed.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/"
+      }
+    },
+    {
+      "id": "home-slicer-broken",
+      "path": "/",
+      "area": "Home",
+      "description": "The slicer isn't working.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/"
+      }
+    },
+    {
+      "id": "home-why-choose-us-broken",
+      "path": "/",
+      "area": "Home",
+      "description": "'Why choose us' section not working.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/"
+      }
+    },
+    {
+      "id": "home-marketplace-header",
+      "path": "/",
+      "area": "Home",
+      "description": "Marketplace link can be removed from the header; users find it in profile.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/"
+      }
+    },
+    {
+      "id": "home-only-exchanges",
+      "path": "/",
+      "area": "Home",
+      "description": "Only exchanges shown — tasks and other sections missing.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/"
+      }
+    },
+    {
+      "id": "home-map-hover-not-clickable",
+      "path": "/",
+      "area": "Home",
+      "description": "Mouseover indicators on maps are not clickable; only navigation button is active.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/"
+      }
+    },
+    {
+      "id": "home-image-upload-broken",
+      "path": "/",
+      "area": "Home",
+      "description": "Unable to upload an image; uploads are generally not possible.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/"
+      }
+    },
+    {
+      "id": "browse-task-missing-images",
+      "path": "/browse/task",
+      "area": "Task Management",
+      "description": "Avatars, preview images, cover images, card images, listing images and thumbnails missing across galleries and upload preview.",
+      "rule": "imagesActuallyLoaded",
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": {
+        "name": "imagesActuallyLoaded",
+        "ok": false,
+        "detail": "skipped (nav failed: page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task)"
+      },
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task"
+      }
+    },
+    {
+      "id": "browse-task-filters-irrelevant",
+      "path": "/browse/task",
+      "area": "Task Management",
+      "description": "Filters do not include relevant options for narrowing down postings.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task"
+      }
+    },
+    {
+      "id": "category-calendar-broken",
+      "path": "/category?query=Household%20%26%20Cleaning&ref_ctx_id=5262ad08-6bc2-4839-9d24-6621cfe24c1b",
+      "area": "Category",
+      "description": "Calendar isn't displaying entries; no 'X' button to close the calendar.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/category?query=Household%20%26%20Cleaning&ref_ctx_id=5262ad08-6bc2-4839-9d24-6621cfe24c1b"
+      }
+    },
+    {
+      "id": "task-details-undefined",
+      "path": "/browse/task/details/?~undefined",
+      "area": "Task Management",
+      "description": "URL contains 'undefined'; nothing is displayed.",
+      "rule": "noUndefinedOnPage",
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": {
+        "name": "noUndefinedOnPage",
+        "ok": false,
+        "detail": "skipped (nav failed: page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task/details/?~undefined)"
+      },
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task/details/?~undefined"
+      }
+    },
+    {
+      "id": "task-details-comments-locked",
+      "path": "/browse/task/details/?~155556b5-c64c-4de4-94c7-8fdb746b98f9",
+      "area": "Task Management",
+      "description": "Comments may not be enabled until the order has been completed.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task/details/?~155556b5-c64c-4de4-94c7-8fdb746b98f9"
+      }
+    },
+    {
+      "id": "task-details-empty-but-calendar-shows",
+      "path": "/browse/task/details/?~155556b5-c64c-4de4-94c7-8fdb746b98f9",
+      "area": "Task Management",
+      "description": "No items available, but items are displayed in the calendar.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task/details/?~155556b5-c64c-4de4-94c7-8fdb746b98f9"
+      }
+    },
+    {
+      "id": "task-details-calendar-no-close",
+      "path": "/browse/task/details/?~155556b5-c64c-4de4-94c7-8fdb746b98f9",
+      "area": "Task Management",
+      "description": "Calendar has no 'X' to close; personal calendar needs name and distinct style.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task/details/?~155556b5-c64c-4de4-94c7-8fdb746b98f9"
+      }
+    },
+    {
+      "id": "post-task-poor-design",
+      "path": "/post-task",
+      "area": "Task Management",
+      "description": "Post-task page has unacceptably poor presentation; design is distorted.",
+      "rule": "noHorizontalOverflow",
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "post-task-form-overlap",
+      "path": "/post-task",
+      "area": "Task Management",
+      "description": "Forms are not designed to cover or overlap the page.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "favorites-unclear-heading",
+      "path": "/profile/favorites",
+      "area": "Profile Management",
+      "description": "'Results found' is not a clear message; needs clearer headings.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "suggestions-needs-search",
+      "path": "/suggestions",
+      "area": "Suggestions",
+      "description": "There must be a search function and an advanced-search option on this page.",
+      "rule": "searchInputPresent",
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": {
+        "name": "searchInputPresent",
+        "ok": false,
+        "detail": "skipped (nav failed: page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/suggestions)"
+      },
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/suggestions"
+      }
+    },
+    {
+      "id": "suggestions-too-much-text",
+      "path": "/suggestions",
+      "area": "Suggestions",
+      "description": "Lists should not contain continuous text — only the most important info.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/suggestions"
+      }
+    },
+    {
+      "id": "suggestions-detail-vs-list",
+      "path": "/suggestions",
+      "area": "Suggestions",
+      "description": "Search results should only include the most important information; additional text can live on the detail pages.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/suggestions"
+      }
+    },
+    {
+      "id": "dashboard-uniform-cards",
+      "path": "/profile/dashboard",
+      "area": "Profile Management",
+      "description": "Dashboard cards are too uniform; no visual hierarchy among key metrics.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "dashboard-sidebar-dominant",
+      "path": "/profile/dashboard",
+      "area": "Profile Management",
+      "description": "Open profile sidebar dominates; floating action buttons cluster creates cognitive overload.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "dashboard-cannot-publish",
+      "path": "/profile/dashboard",
+      "area": "Profile Management",
+      "description": "Content cannot be published from the dashboard; links and buttons are inactive.",
+      "rule": "dashboardHasActionableButtons",
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "dashboard-content-not-publishable",
+      "path": "/profile/dashboard",
+      "area": "Profile Management",
+      "description": "Content cannot be published.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "dashboard-no-user-guidance",
+      "path": "/profile/dashboard",
+      "area": "Profile Management",
+      "description": "Lack of clear user guidance; users need to understand from this page that they can post various things. The UX here is terrible.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "dashboard-double-calendar",
+      "path": "/profile/dashboard",
+      "area": "Profile Management",
+      "description": "Double pop-up calendar and Published buttons; confusing UX.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "workspace-unable-to-load",
+      "path": "/profile/my_workspace",
+      "area": "Profile Management",
+      "description": "'Unable to load your posted orders' error shows alongside empty state — contradictory messaging.",
+      "rule": "noErrorAlertVisible",
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "workspace-confusing",
+      "path": "/profile/my_workspace",
+      "area": "Profile Management",
+      "description": "Absolutely confusing; very poor; users dropping off here.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "workspace-error-on-empty",
+      "path": "/profile/my_workspace",
+      "area": "Profile Management",
+      "description": "Error messages for non-existent content disrupt the UX.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "supporter-dashboard-no-feedback",
+      "path": "/profile/supporter_dashboard",
+      "area": "Profile Management",
+      "description": "After confirmation, user does not see what happened — no redirect or info.",
+      "rule": null,
+      "issue_status": "active",
+      "source": {
+        "sheet_url": "https://docs.google.com/spreadsheets/d/14mnRcgRWvF_MhUEFLSDegDDVFlvAN86JY32E8EZWmDI/edit?gid=1436876268",
+        "sheet_section": "Feature Status & UI Issues table"
+      },
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "generic_checks": [],
+      "rule_check": null,
+      "page_data": null
+    },
+    {
+      "id": "search-breadcrumb-broken",
+      "path": "/search",
+      "area": "Search",
+      "description": "Selecting 'Search' in the breadcrumb does not navigate; long load time.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/search"
+      }
+    },
+    {
+      "id": "search-results-no-empty-state",
+      "path": "/search/results?location_name=Current+location",
+      "area": "Search",
+      "description": "If no matching offers, should display 'No matching offers' with alternatives; loading is slow.",
+      "rule": null,
+      "issue_status": "active",
+      "verdict": "unknown",
+      "generic_checks": [
+        {
+          "name": "http-ok",
+          "ok": false,
+          "detail": "HTTP 0"
+        },
+        {
+          "name": "no-page-errors",
+          "ok": true,
+          "detail": "no uncaught exceptions"
+        },
+        {
+          "name": "no-serious-console-errors",
+          "ok": true,
+          "detail": "0 benign console msgs"
+        },
+        {
+          "name": "no-error-text-on-page",
+          "ok": true,
+          "detail": "no error text visible"
+        },
+        {
+          "name": "no-broken-images",
+          "ok": true,
+          "detail": "0 images loaded"
+        }
+      ],
+      "rule_check": null,
+      "page_data": {
+        "final_path": "blank",
+        "http_status": 0,
+        "total_images": 0,
+        "broken_images": 0,
+        "console_error_count": 0,
+        "page_error_count": 0,
+        "nav_error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/search/results?location_name=Current+location"
+      }
+    }
+  ],
+  "diff_vs_previous": {
+    "newly_fixed": [],
+    "newly_broken": []
+  }
+}

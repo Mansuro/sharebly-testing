@@ -1,0 +1,445 @@
+{
+  "base_url": "http://78.46.183.126:5173",
+  "checked_at": "2026-08-30T11:32:51.095Z",
+  "authenticated": false,
+  "total_scenarios": 8,
+  "results": [
+    {
+      "id": "auth-email-login",
+      "name": "Email login via navbar modal",
+      "area": "Authentication",
+      "description": "Open the navbar login modal, submit credentials, confirm the modal closes and the session is authenticated.",
+      "verdict": "fail",
+      "step_results": [
+        {
+          "kind": "goto",
+          "params": {
+            "path": "/"
+          },
+          "ok": false,
+          "duration_ms": 140,
+          "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/",
+          "screenshot": "auth-email-login-0.png"
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 1200
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "click",
+          "params": {
+            "text": "Log in"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 1000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "fill",
+          "params": {
+            "selector": "[role=\"dialog\"] input[type=\"email\"], [role=\"dialog\"] input[type=\"text\"]:not([type=\"password\"]), .MuiDialog-root input[type=\"email\"], .MuiDialog-root input[type=\"text\"]:not([type=\"password\"]), .MuiModal-root input[type=\"email\"], .MuiModal-root input[type=\"text\"]:not([type=\"password\"]), input[type=\"email\"], input[type=\"text\"]:not([type=\"password\"])",
+            "value": "$EMAIL"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "fill",
+          "params": {
+            "selector": "input[type=\"password\"]",
+            "value": "$PASSWORD"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "click",
+          "params": {
+            "selector": "[role=\"dialog\"] button[type=\"submit\"], .MuiDialog-root button[type=\"submit\"], .MuiModal-root button[type=\"submit\"], form button[type=\"submit\"], [role=\"dialog\"] button:has-text(\"Log in\"), .MuiDialog-root button:has-text(\"Log in\"), .MuiModal-root button:has-text(\"Log in\"), [role=\"dialog\"] button.MuiButton-contained, .MuiDialog-root button.MuiButton-contained, .MuiModal-root button.MuiButton-contained"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_text",
+          "params": {
+            "text": "Authenticated",
+            "timeout_ms": 15000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "id": "home-browse-tasks-entry",
+      "name": "Home to Browse Tasks",
+      "area": "Home Flow",
+      "description": "Land on the home page and navigate into the Browse Tasks list.",
+      "verdict": "fail",
+      "step_results": [
+        {
+          "kind": "goto",
+          "params": {
+            "path": "/"
+          },
+          "ok": false,
+          "duration_ms": 246,
+          "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/",
+          "screenshot": "home-browse-tasks-entry-0.png"
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 1200
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "goto",
+          "params": {
+            "path": "/browse/task"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 1500
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_url",
+          "params": {
+            "contains": "/browse/task"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_visible",
+          "params": {
+            "selector": "header",
+            "timeout_ms": 10000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "id": "task-browse-search",
+      "name": "Browse Tasks search input present",
+      "area": "Task Management",
+      "description": "Visit the Browse Tasks page and verify a search input is present and usable.",
+      "verdict": "fail",
+      "step_results": [
+        {
+          "kind": "goto",
+          "params": {
+            "path": "/browse/task"
+          },
+          "ok": false,
+          "duration_ms": 128,
+          "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task",
+          "screenshot": "task-browse-search-0.png"
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 2000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_visible",
+          "params": {
+            "selector": "input[type=\"search\"], input[placeholder*=\"search\" i], [role=\"searchbox\"], input[aria-label*=\"search\" i], .MuiInputBase-input",
+            "timeout_ms": 10000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "fill",
+          "params": {
+            "selector": "input[type=\"search\"], input[placeholder*=\"search\" i], [role=\"searchbox\"], input[aria-label*=\"search\" i], .MuiInputBase-input",
+            "value": "cleaning"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "id": "task-create-flow",
+      "name": "Task creation form loads",
+      "area": "Task Management",
+      "description": "Authenticated user can open the post-task form and see editable inputs.",
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "step_results": [
+        {
+          "kind": "goto",
+          "params": {
+            "path": "/post-task"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 2000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_url",
+          "params": {
+            "contains": "/post-task"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_visible",
+          "params": {
+            "selector": "input:visible, textarea:visible",
+            "timeout_ms": 10000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "id": "task-favorite-list",
+      "name": "Favorites list opens",
+      "area": "Task Management",
+      "description": "Authenticated user can navigate to their favorites page and see the results heading.",
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "step_results": [
+        {
+          "kind": "goto",
+          "params": {
+            "path": "/profile/favorites"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 2000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_url",
+          "params": {
+            "contains": "/profile/favorites"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_visible",
+          "params": {
+            "selector": "header",
+            "timeout_ms": 10000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "id": "service-browse",
+      "name": "My Services page loads",
+      "area": "Service Management",
+      "description": "Authenticated user can open their My Services page and the page renders. (Sharebly has no public 'browse services' page; /profile/my-service is the closest real surface.)",
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "step_results": [
+        {
+          "kind": "goto",
+          "params": {
+            "path": "/profile/my-service"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 2000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_url",
+          "params": {
+            "contains": "/profile/my-service"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_visible",
+          "params": {
+            "selector": "header",
+            "timeout_ms": 10000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "id": "profile-view",
+      "name": "View Profile",
+      "area": "Profile Management",
+      "description": "Authenticated user can open their profile page and see the profile container.",
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "step_results": [
+        {
+          "kind": "goto",
+          "params": {
+            "path": "/profile"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 2000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_url",
+          "params": {
+            "contains": "/profile"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_visible",
+          "params": {
+            "selector": "header",
+            "timeout_ms": 10000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "id": "profile-edit-form-editable",
+      "name": "Edit Profile form is editable",
+      "area": "Profile Management",
+      "description": "Authenticated user can reach the account settings page and see at least one editable input.",
+      "verdict": "skipped",
+      "reason": "auth required but no auth state available",
+      "step_results": [
+        {
+          "kind": "goto",
+          "params": {
+            "path": "/settings/account"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "wait",
+          "params": {
+            "ms": 2000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_url",
+          "params": {
+            "contains": "/settings/account"
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        },
+        {
+          "kind": "expect_visible",
+          "params": {
+            "selector": "form input:not([disabled]):not([readonly]), form textarea:not([disabled]):not([readonly]), input:not([disabled]):not([readonly]), textarea:not([disabled]):not([readonly]), .MuiInputBase-input:not([disabled]):not([readonly])",
+            "timeout_ms": 10000
+          },
+          "ok": null,
+          "duration_ms": 0,
+          "error": null
+        }
+      ]
+    }
+  ],
+  "diff_vs_previous": {
+    "newly_passing": [],
+    "newly_failing": []
+  }
+}
