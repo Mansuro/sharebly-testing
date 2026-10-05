@@ -1,7 +1,7 @@
 # Known-Issue Verification
 
 - Base URL: http://78.46.183.126:5173
-- Checked at: 2026-10-04T12:00:03.203Z
+- Checked at: 2026-10-05T14:01:39.338Z
 - Authenticated session: no
 - Verdicts: 0 pass · 0 fail · 19 skipped · 20 unknown
 
