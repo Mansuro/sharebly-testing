@@ -1,7 +1,7 @@
 # Workflow Scenario Verification
 
 - Base URL: http://78.46.183.126:5173
-- Checked at: 2026-10-11T12:22:29.912Z
+- Checked at: 2026-10-12T14:51:00.152Z
 - Authenticated session: no
 - Verdicts: 0 pass · 3 fail · 5 skipped · 0 unknown
 
@@ -10,7 +10,7 @@
 ### ❌ auth-email-login — Email login via navbar modal
 
 - Open the navbar login modal, submit credentials, confirm the modal closes and the session is authenticated.
-- Steps: 0/8 passed · 103ms
+- Steps: 0/8 passed · 130ms
 - Failed step #1 (`goto`): page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/
 
 ## Home Flow
@@ -18,7 +18,7 @@
 ### ❌ home-browse-tasks-entry — Home to Browse Tasks
 
 - Land on the home page and navigate into the Browse Tasks list.
-- Steps: 0/6 passed · 198ms
+- Steps: 0/6 passed · 235ms
 - Failed step #1 (`goto`): page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/
 
 ## Task Management
@@ -26,7 +26,7 @@
 ### ❌ task-browse-search — Browse Tasks search input present
 
 - Visit the Browse Tasks page and verify a search input is present and usable.
-- Steps: 0/4 passed · 103ms
+- Steps: 0/4 passed · 129ms
 - Failed step #1 (`goto`): page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task
 
 ### ⏭️ task-create-flow — Task creation form loads
