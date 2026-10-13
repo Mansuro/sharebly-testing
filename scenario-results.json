@@ -1,6 +1,6 @@
 {
   "base_url": "http://78.46.183.126:5173",
-  "checked_at": "2026-10-12T14:51:00.152Z",
+  "checked_at": "2026-10-13T13:50:28.500Z",
   "authenticated": false,
   "total_scenarios": 8,
   "results": [
@@ -17,7 +17,7 @@
             "path": "/"
           },
           "ok": false,
-          "duration_ms": 130,
+          "duration_ms": 105,
           "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/",
           "screenshot": "auth-email-login-0.png"
         },
@@ -102,7 +102,7 @@
             "path": "/"
           },
           "ok": false,
-          "duration_ms": 235,
+          "duration_ms": 202,
           "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/",
           "screenshot": "home-browse-tasks-entry-0.png"
         },
@@ -167,7 +167,7 @@
             "path": "/browse/task"
           },
           "ok": false,
-          "duration_ms": 129,
+          "duration_ms": 99,
           "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://78.46.183.126:5173/browse/task",
           "screenshot": "task-browse-search-0.png"
         },
