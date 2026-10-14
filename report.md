@@ -1,6 +1,6 @@
 # Sharebly Route Verification Report
 
-Generated: 2026-10-13T13:50:28.690Z
+Generated: 2026-10-14T11:28:04.586Z
 Base URL: http://78.46.183.126:5173
 Total routes: 130
 
